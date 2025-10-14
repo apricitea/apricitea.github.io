@@ -1,185 +1,449 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-    	<title>Alvinium</title>
-	    <meta charset="utf-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	    <link href="https://fonts.googleapis.com/css2?family=Figtree&display=swap" rel="stylesheet">
-	    <link rel="stylesheet" href="assets/css/main.css" />
-	    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			.bold-text {
-				font-weight: bold;
-			}
-		</style>
-	</head>
-	
-	<body class="is-preload" style="font-family: 'Figtree', sans-serif;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Alvin C. Nataputra | Data Scientist & Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Personal site of Alvin C. Nataputra – data scientist, product tinkerer, and builder of human-centered intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="divided">
+  <header class="top-nav" id="top">
+    <div class="container">
+      <a class="brand" href="#top">
+        <span class="brand-logo" aria-hidden="true">&gt;_</span>
+        <span class="brand-text">Alvin C. Nataputra</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#projects">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-				<!-- One -->
-					<section class="banner style1 orient-left content-align-left image-position-right fullscreen">
-						<div class="content">
-							<h1>Alvin C. Nataputra</h1>
-							<p class="major">If I have but one chance at life, I wish to devote it to exploring the uncharted places—To traverse beyond the known and submerge myself in the vast ocean of untouched possibilities—Even if it means becoming the first to step into a Black hole, I am willing to take make that leap.</p>
-							<ul class="actions stacked">
-								<li><a href="#first" class="button big wide smooth-scroll-middle">Get to know more about me</a></li>
-							</ul>
-						</div>
-						<div class="image">
-							<img src="images/banner.jpg" alt="Apricitea" />
-						</div>
-					</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>Data scientist · builder</span>
+          <h1>Hi, I'm Alvin! <br>Data scientist and developer at heart.<br></h1>
+          <p>Super into bringing visions into reality.</p>
+          <div class="hero-actions">
+            <a class="button accent" href="#projects">Explore projects</a>
+            <a class="button ghost" href="#contact">Say hello</a>
+          </div>
+          <dl class="hero-meta">
+            <div>
+              <dt>Now</dt>
+              <dd>Building data foundations, cooking models, and serving integrated LLMs-assisted Dashboards and UIs.</dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Generate insights, automate process, and always searching for new stuff.</dd>
+            </div>
+            <div>
+              <dt>Motto</dt>
+              <dd>Favorites motto is: "Why? How? What if ~ ???"</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Jakarta (GMT+7) · also open to remote opportunities.</dd>
+            </div>
+          </dl>
+        </div>
+        <aside class="hero-terminal" aria-label="Personal terminal">
+          <div class="terminal-card">
+            <div class="terminal-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+              <p>alvin@apricitea — bash</p>
+            </div>
+            <div class="terminal-body">
+              <p><span class="prompt">alvin@apricitea</span>:~$ whoami</p>
+              <p>Curious data scientist, developer, and storyteller.</p>
+              <p><span class="prompt">alvin@apricitea</span>:~$ cat purpose.txt</p>
+              <p>To build everything that can makes people enjoy life a little bit more.</p>
+              <p><span class="prompt">alvin@apricitea</span>:~$ ./play moku_&_cimol</p>
+              <p>They are my cat friends who made the most impact in my life.</p>
+              <p><span class="prompt">alvin@apricitea</span>:~$ agenda</p>
+              <p>Learn relentlessly. Explore new places. Make friends with everything. Enjoy coffee.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-				<!-- Two -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-						<div class="content">
-							<h2>Who am I?</h2>
-							<p>Having absorbed four years' worth of teachings from Fisher, Neyman, and Bayes (read: an undergraduate degree in Statistics), and driven by a passion to code the hell out of everything, I am always able to find new things or problems that I believe can be solved by data, statistics, and programming. With an insatiable curiosity, I can never sleep peacefully unless every stone has been overturned. Thus, you can think of me as your personal, unstoppable problem-solving machine—coupled with a yearning for meaningful causes and connections, I aim to repaint the canvas of my inherently insignificant existence with vibrant hues of purpose.</p>
-						</div>
-						<div class="image">
-							<img src="images/spotlight01.jpg" alt="" />
-						</div>
-					</section>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">About</span>
+          <h2>Curious brain, loves vibing.</h2>
+          <p>I learned statistics to understand the world with all the uncertainties it has, then learn some coding to put everything together.</p>
+        </div>
+        <div class="card-grid two">
+          <article class="panel">
+            <h3>How I work</h3>
+            <p>I keep problems small, tries to fully understand by listening, prototype with real data, and find ways to improve things iteratively. Ambiguity doesn't scare me, I thrives in uncertainties.</p>
+          </article>
+          <article class="panel">
+            <h3>Traits</h3>
+            <ul class="goal-list">
+              <li><span>Focus on Impact</span> — Pair endless curiosity with action to deliver real impacts.</li>
+              <li><span>AB Tester</span> — Love new ideas and always find ways to test them rigorously.</li>
+              <li><span>Value Time</span> — Knowing that time is limited, I prioritize what truly matters.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Quick snapshot</h3>
+            <ul class="snapshot-list">
+              <li><span>Base</span> Jakarta, open to remote pods across time zones.</li>
+              <li><span>Off-hours</span> Read stuff, code some stuff, slow coffee talks, converse with cats, curating playlists, play JRPGs.</li>
+              <li><span>Currently pursuing</span> Experiences in Data (Engineering, Science, and Analytics) and ML/AI Engineering. Looking for a Master Degree as well.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-				<!-- Three -->
-					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>What am I striving for?</h2>
-							<p>Ideally, world peace and eternal harmony. But that's unattainable isn't it? So, <br>1. To be at the forefront of developing Artificial General Intelligence (AGI) or whatever's gonna be the next evolution of Intelligence.<br>2. To traverse the globe, venturing to new places and capturing the essence of those beauty in a static memory block of photographs.<br>3. To build a house in a rural area, having a huge backyard and surrounded by animals.<br>4. To sip a warm cup of coffee near the fireplace while engaging in profound conversations with my loved ones.</p>
-						</div>
-						<div class="image">
-							<img src="images/spotlight02.jpg" alt="" />
-						</div>
-					</section>
+    <section class="section" id="capabilities">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Capabilities</span>
+          <h2>Ways I can help your team</h2>
+          <p>Hands-on data person that can understand your needs and build stuff to turn your visions into something much more beautiful!</p>
+        </div>
+        <div class="card-grid three">
+          <article class="panel">
+            <h3>Data & ML craft</h3>
+            <ul class="stack-list">
+              <li><span>Modeling</span> Sequence models, tree ensembles, practical interpretability.</li>
+              <li><span>Analytics</span> Experiment design, causal questions, storytelling dashboards.</li>
+              <li><span>LLM</span> Integrate LLM to empower the needs of the team with state-of-the-art practices.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Product & engineering</h3>
+            <ul class="stack-list">
+              <li><span>Product sense</span> Turn fuzzy prompts into testable roadmaps and prototypes.</li>
+              <li><span>Full-stack</span> Ship React/Next.js, craft APIs, automate pipelines, containerize calmly.</li>
+              <li><span>DX</span> CI/CD, observability, lightweight documentation, thoughtful review culture.</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>Ways I collaborate</h3>
+            <ul class="stack-list">
+              <li><span>Cross-functional</span> Work tightly with PMs, designers, researchers, and ops.</li>
+              <li><span>Communication</span> Ship clear decision docs, async updates, and honest retros.</li>
+              <li><span>Leadership</span> Mentor, facilitate working sessions, advocate for responsible AI.</li>
+            </ul>
+          </article>
+        </div>
+        <div class="stat-grid">
+          <article class="stat-card">
+            <dl>
+              <dt>Focus roles</dt>
+              <dd>Data scientist · ML engineer · analytics hybrids who ship.</dd>
+            </dl>
+          </article>
+          <article class="stat-card">
+            <dl>
+              <dt>Strengths</dt>
+              <dd>Making ambiguity legible, prototyping fast, looping with users.</dd>
+            </dl>
+          </article>
+          <article class="stat-card">
+            <dl>
+              <dt>Collaboration</dt>
+              <dd>Remote-first, async-friendly, basically can adjust to your needs.</dd>
+            </dl>
+          </article>
+          <article class="stat-card">
+            <dl>
+              <dt>Thrives in</dt>
+              <dd>Team that always seeking something even better and never stops at anything.</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
 
-				<!-- Four -->
-					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
-						<div class="content">
-							<h2>A dedicated Tribute for Moku 🐱</h2>
-							<p>I met Moku at a minimarket when I was at my lowest point. I gave him some food, and he started following me. So, I decided to bring him home. He often wandered around outside but always came back. We played a lot together, and he kept me company during my loneliest moments. His presence is comforting me. Sometimes he did strange and funny things that I couldn't quite comprehend. He has always been a good friend, one I will always remember. Rest in Peace, Moku.</p>
-						</div>
-						<div class="image">
-							<img src="images/spotlight03.jpg" alt="" />
-						</div>
-					</section>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Side Projects</span>
+          <h2>Recent builds & experiments</h2>
+          <p>Projects that blend statistical intuition, machine learning, and thoughtful product craft.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">suicide-detection</span>
+              </div>
+              <span class="project-status" data-status="deployed"><span class="status-dot" aria-hidden="true"></span>deployed</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/nlp$ ./run suicide-detection --live</p>
+              <p class="caret-line">listening for signals…</p>
+            </div>
+            <div class="project-body">
+              <h3>Detecting Suicidal Ideation in Tweets</h3>
+              <p>Built an LSTM + fastText classifier to flag at-risk conversations with empathy at the core.</p>
+              <ul class="project-tags">
+                <li>NLP</li>
+                <li>Mental health</li>
+                <li>fastText</li>
+              </ul>
+              <a class="project-link" href="https://huggingface.co/spaces/apricitea/suicide-detection" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
 
-				<!-- Five -->
-					<section class="wrapper style1 align-center">
-						<div class="inner">
-							<h2>Some of my works</h2>
-							<p>I have performed several <b>data analyses</b>, created <b>machine learning models</b>, and built <b>websites/applications.</b> You can easily explore and access all of my projects documentation presented <b>below!</b></p>
-						</div>
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">spam-filter</span>
+              </div>
+              <span class="project-status" data-status="maintained"><span class="status-dot" aria-hidden="true"></span>maintained</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/ml$ make classify target=indonesian_sms</p>
+              <p class="caret-line">deploy pipeline › sms-gateway</p>
+            </div>
+            <div class="project-body">
+              <h3>Spam Messages Classification</h3>
+              <p>Shipped an Indonesian SMS spam filter that balances accuracy with lightweight ops.</p>
+              <ul class="project-tags">
+                <li>Text mining</li>
+                <li>Logistic regression</li>
+                <li>Deployment</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/sms-spam-classification" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
 
-						<!-- Gallery -->
-							<div class="gallery style2 medium lightbox onscroll-fade-in">
-								
-								<article>
-									<a href="images/gallery/fulls/05.jpg" class="image">
-										<img src="images/gallery/thumbs/05.jpg" alt="twitter-dark-picture" />
-									</a>
-									<div class="caption">
-										<h3>Detecting Suicidal Ideation in Tweets</h3>
-										<p>Detecting the presence of suicidal ideation in tweets using LSTM and fastText word embedding</p>
-										<ul class="actions fixed">
-											<li><a href="https://huggingface.co/spaces/apricitea/suicide-detection" class="button small">Details</a></li>
-										</ul>
-									</div>
-								</article>
-								
-								<article>
-									<a href="images/gallery/fulls/04.jpg" class="image">
-										<img src="images/gallery/thumbs/04.jpg" alt="spam-category-picture" />
-									</a>
-									<div class="caption">
-										<h3>Spam Messages Classification</h3>
-										<p>Machine learning model that classify Indonesian messages as spam or not.</p>
-										<ul class="actions fixed">
-											<li><a href="https://github.com/apricitea/sms-spam-classification" class="button small">Details</a></li>
-										</ul>
-									</div>
-								</article>
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">lost-and-found</span>
+              </div>
+              <span class="project-status" data-status="beta"><span class="status-dot" aria-hidden="true"></span>beta</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/product$ yarn dev --scope lost-and-found-ipb</p>
+              <p class="caret-line">pairing students ↔ belongings</p>
+            </div>
+            <div class="project-body">
+              <h3>Lost and Found IPB</h3>
+              <p>Co-led a student platform reconnecting people and lost items through community-first flows.</p>
+              <ul class="project-tags">
+                <li>Product design</li>
+                <li>Full stack</li>
+                <li>Community</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/Lost-and-Found-IPB" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
 
-								<article>
-									<a href="images/gallery/fulls/03.png" class="image">
-										<img src="images/gallery/thumbs/03.png" alt="Lost-and-Found-IPB-home-display" />
-									</a>
-									<div class="caption">
-										<h3>Lost and Found IPB</h3>
-										<p>App that serves as an integrated information center to help IPBnesian find their lost item.</p>
-										<ul class="actions fixed">
-											<li><a href="https://github.com/apricitea/Lost-and-Found-IPB" class="button small">Details</a></li>
-										</ul>
-									</div>
-								</article>
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">heart-check</span>
+              </div>
+              <span class="project-status" data-status="validated"><span class="status-dot" aria-hidden="true"></span>validated</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/healthtech$ python predict.py --model knn-smote</p>
+              <p class="caret-line">risk thresholds → clinicians</p>
+            </div>
+            <div class="project-body">
+              <h3>Heart Failure Classification</h3>
+              <p>Prototyped a KNN + SMOTE model to give clinicians interpretable heart-failure risk cues.</p>
+              <ul class="project-tags">
+                <li>Healthcare</li>
+                <li>SMOTE</li>
+                <li>KNN</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/heart-failure-classification" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
 
-								<article>
-									<a href="images/gallery/fulls/02.jpg" class="image">
-										<img src="images/gallery/thumbs/02.jpg" alt="heart-model" />
-									</a>
-									<div class="caption">
-										<h3>Heart Failure Classification</h3>
-										<p>Simple Classification model to predict Heart Failure using KNN and SMOTE for imbalanced data</p>
-										<ul class="actions fixed">
-											<li><a href="https://github.com/apricitea/heart-failure-classification" class="button small">Details</a></li>
-										</ul>
-									</div>
-								</article>
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">king-county</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/pricing$ ./ensemble --dataset king_county.csv</p>
+              <p class="caret-line">ensembling 32 market signals</p>
+            </div>
+            <div class="project-body">
+              <h3>Advanced House Price Prediction</h3>
+              <p>Built an ensemble pipeline that captures messy King County housing signals for pricing teams.</p>
+              <ul class="project-tags">
+                <li>Ensemble</li>
+                <li>EDA</li>
+                <li>Real estate</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/house-price-prediction-with-ensemble-regression" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
 
-								<article>
-									<a href="images/gallery/fulls/01.jpg" class="image">
-										<img src="images/gallery/thumbs/01.jpg" alt="houses-picture" />
-									</a>
-									<div class="caption">
-										<h3>Advanced House Price Prediction</h3>
-										<p>Advanced Regression model to predict house prices in King County (US) using Ensemble method</p>
-										<ul class="actions fixed">
-											<li><a href="https://github.com/apricitea/house-price-prediction-with-ensemble-regression" class="button small">Details</a></li>
-										</ul>
-									</div>
-								</article>
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">ihsg-labs</span>
+              </div>
+              <span class="project-status" data-status="exploring"><span class="status-dot" aria-hidden="true"></span>exploring</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/markets$ jupyter nbconvert ihsg.ipynb --to html</p>
+              <p class="caret-line">surfacing macro patterns</p>
+            </div>
+            <div class="project-body">
+              <h3>Time Series Analysis of IHSG</h3>
+              <p>Explored the Indonesian composite index to highlight long-term market trends and anomalies.</p>
+              <ul class="project-tags">
+                <li>Time series</li>
+                <li>Finance</li>
+                <li>Visualization</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/exploringIHSG" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-								<article>
-									<a href="images/gallery/fulls/00.jpg" class="image">
-										<img src="images/gallery/thumbs/00.jpg" alt="stonk-meme" />
-									</a>
-									<div class="caption">
-										<h3>Time Series Analysis of IHSG</h3>
-										<p>Performing Time Series Analysis on IHSG (Index of all stock listed in Indonesia) daily closing prices</p>
-										<ul class="actions fixed">
-											<li><a href="https://github.com/apricitea/exploringIHSG" class="button small">Details</a></li>
-										</ul>
-									</div>
-								</article>
+    <section class="section" id="notes">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow">Notes</span>
+          <h2>What I'm noodling on</h2>
+          <p>
+            Things that currently live in my notes app and coffee chats.
+          </p>
+        </div>
+        <div class="card-grid three">
+          <article class="panel">
+            <h3>Applied creativity</h3>
+            <p>How storytelling, data viz, and transparency can share the same product roadmap.</p>
+          </article>
+          <article class="panel">
+            <h3>Communities & care</h3>
+            <p>Designing safer digital rooms where vulnerable conversations still feel natural.</p>
+          </article>
+          <article class="panel">
+            <h3>Analog joys</h3>
+            <p>Film photos, brewing coffee, remembering Moku, and letting hobbies stay offline.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-							</div>
-					</section>
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-card">
+        <span class="eyebrow">Contact</span>
+        <h2>Let's build something meaningful.</h2>
+        <p>
+          Working on something thoughtful? Need a fresh pair of eyes on your data or product? Drop a note and let’s chat.
+        </p>
+        <div class="footer-actions">
+          <a class="button accent" href="mailto:alvincnataputra@gmail.com">Email me</a>
+          <a class="button ghost" href="https://www.linkedin.com/in/alvincnataputra/" target="_blank" rel="noopener">LinkedIn</a>
+          <ul class="social-links">
+            <li>
+              <a href="https://github.com/apricitea" aria-label="GitHub">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.44c.58.11.79-.25.79-.56v-2c-3.23.71-3.91-1.41-3.91-1.41a3.07 3.07 0 0 0-1.28-1.7c-1.05-.72.08-.7.08-.7a2.43 2.43 0 0 1 1.78 1.2 2.46 2.46 0 0 0 3.36 1 2.44 2.44 0 0 1 .73-1.53c-2.58-.29-5.29-1.29-5.29-5.74a4.5 4.5 0 0 1 1.2-3.13 4.18 4.18 0 0 1 .11-3.09s.97-.31 3.18 1.2a10.84 10.84 0 0 1 5.8 0c2.21-1.51 3.18-1.2 3.18-1.2a4.18 4.18 0 0 1 .12 3.09 4.5 4.5 0 0 1 1.2 3.13c0 4.47-2.72 5.44-5.31 5.72a2.72 2.72 0 0 1 .78 2.11v3.13c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5Z"/>
+                  </svg>
+                </span>
+                <span class="social-label">GitHub</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/alvincnataputra/" aria-label="LinkedIn">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4.98 3.5a2.5 2.5 0 1 1-2.49 2.5 2.5 2.5 0 0 1 2.49-2.5ZM3 9.25h3.96V21H3Zm6.49 0h3.79v1.6h.05c.52-.98 1.8-2 3.71-2 3.96 0 4.69 2.6 4.69 5.99V21H18.7v-5.13c0-1.22-.02-2.79-1.7-2.79-1.7 0-1.96 1.33-1.96 2.7V21h-3.94Z"/>
+                  </svg>
+                </span>
+                <span class="social-label">LinkedIn</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/catesianplane/" aria-label="Instagram">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm6.75-3.75a1.25 1.25 0 1 1-1.25 1.25 1.25 1.25 0 0 1 1.25-1.25Z"/>
+                  </svg>
+                </span>
+                <span class="social-label">Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/@apricitea" aria-label="Medium">
+                <span class="social-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M4.5 7.1a.76.76 0 0 0-.25-.65L2.24 4.26V4h6.58l5.09 11.17L18.4 4H24v.26l-1.59 1.53a.46.46 0 0 0-.17.44v11.64a.46.46 0 0 0 .17.44l1.56 1.53v.26h-7.52v-.26l1.62-1.58c.16-.16.16-.2.16-.44V7.76l-4.21 10.67h-.57L7.3 7.76v7.15c-.04.32.06.64.26.87l2.11 2.57v.26H1.86v-.26l2.11-2.57a.92.92 0 0 0 .24-.87Z"/>
+                  </svg>
+                </span>
+                <span class="social-label">Medium</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Alvin C. Nataputra. Crafted with curiosity and care.</p>
+    </div>
+  </footer>
 
-				<!-- Footer -->
-					<footer class="wrapper style1 align-center">
-						<div class="inner">
-							<p>Get in touch with me! :></p>
-							<ul class="icons">
-								<li><a href="https://github.com/apricitea" class="icon brands style2 fa-github"><span class="label">Github</span></a></li>
-								<li><a href="https://www.linkedin.com/in/alvincnataputra/" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://www.instagram.com/alchutra/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://medium.com/@apricitea" class="icon brands style2 fa-medium"><span class="label">Medium</span></a></li>
-							</ul>
-						</div>
-					</footer>
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const yearEl = document.getElementById('year');
 
-			</div>
+    if (navToggle) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('open');
+        navLinks.classList.toggle('open');
+      });
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    navLinks?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
 
-	</body>
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
 </html>
