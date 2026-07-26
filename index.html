@@ -38,9 +38,9 @@
     <section class="hero" id="home">
       <div class="container hero-layout">
         <div class="hero-copy">
-          <span class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>Data scientist · builder</span>
-          <h1>Hi, I'm Alvin! <br>Data scientist and developer at heart.<br></h1>
-          <p>Super into bringing visions into reality.</p>
+          <span class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>Data Scientist / ML Engineer</span>
+          <h1>Hi, I'm Alvin! <br>Building ML systems and agentic AI.<br></h1>
+          <p>Data Scientist / ML Engineer at XLSmart by day; quant ML, multi-agent orchestration, and full-stack side projects by night.</p>
           <div class="hero-actions">
             <a class="button accent" href="#projects">Explore projects</a>
             <a class="button ghost" href="#contact">Say hello</a>
@@ -48,11 +48,11 @@
           <dl class="hero-meta">
             <div>
               <dt>Now</dt>
-              <dd>Building data foundations, cooking models, and serving integrated LLMs-assisted Dashboards and UIs.</dd>
+              <dd>Shipping ML pipelines at work, side projects on evenings, and prepping a Master's application (Europe).</dd>
             </div>
             <div>
               <dt>Focus</dt>
-              <dd>Generate insights, automate process, and always searching for new stuff.</dd>
+              <dd>ML systems engineering, agentic AI, and applied forecasting/signal generation.</dd>
             </div>
             <div>
               <dt>Motto</dt>
@@ -143,25 +143,25 @@
           <article class="panel">
             <h3>Data & ML craft</h3>
             <ul class="stack-list">
-              <li><span>Modeling</span> Sequence models, tree ensembles, practical interpretability.</li>
-              <li><span>Analytics</span> Experiment design, causal questions, storytelling dashboards.</li>
-              <li><span>LLM</span> Integrate LLM to empower the needs of the team with state-of-the-art practices.</li>
+              <li><span>Modeling</span> Gradient-boosted ensembles, calibrated binary classifiers, leakage-safe evaluation (project-helios, project-aurum).</li>
+              <li><span>Data engineering</span> Idempotent ETL, data-quality gating, warehouse design at scale.</li>
+              <li><span>LLM integration</span> Multi-agent orchestration, graceful-degradation LLM pipelines, agentic coding tools.</li>
             </ul>
           </article>
           <article class="panel">
             <h3>Product & engineering</h3>
             <ul class="stack-list">
-              <li><span>Product sense</span> Turn fuzzy prompts into testable roadmaps and prototypes.</li>
-              <li><span>Full-stack</span> Ship React/Next.js, craft APIs, automate pipelines, containerize calmly.</li>
-              <li><span>DX</span> CI/CD, observability, lightweight documentation, thoughtful review culture.</li>
+              <li><span>Full-stack</span> React/Next.js frontends, FastAPI/Flask backends, real-time dashboards.</li>
+              <li><span>CI/CD</span> Automated test + lint gates on every push (see project-helios).</li>
+              <li><span>Documentation-first</span> Repos structured so both humans and AI agents can pick up context cold.</li>
             </ul>
           </article>
           <article class="panel">
-            <h3>Ways I collaborate</h3>
+            <h3>Currently focused on</h3>
             <ul class="stack-list">
-              <li><span>Cross-functional</span> Work tightly with PMs, designers, researchers, and ops.</li>
-              <li><span>Communication</span> Ship clear decision docs, async updates, and honest retros.</li>
-              <li><span>Leadership</span> Mentor, facilitate working sessions, advocate for responsible AI.</li>
+              <li><span>Agentic AI</span> How agents stay grounded and safely bounded over long autonomous runs.</li>
+              <li><span>Applied ML</span> Forecasting, signal generation, and risk modeling under real data constraints.</li>
+              <li><span>Grad school</span> Preparing a Master's application in AI research/applications (Europe).</li>
             </ul>
           </article>
         </div>
@@ -169,25 +169,25 @@
           <article class="stat-card">
             <dl>
               <dt>Focus roles</dt>
-              <dd>Data scientist · ML engineer · analytics hybrids who ship.</dd>
+              <dd>Data scientist · ML engineer · ML systems engineering.</dd>
             </dl>
           </article>
           <article class="stat-card">
             <dl>
-              <dt>Strengths</dt>
-              <dd>Making ambiguity legible, prototyping fast, looping with users.</dd>
+              <dt>Day job</dt>
+              <dd>XLSmart — customer value & experience management: churn modeling, LTV forecasting, telco-scale pipelines.</dd>
             </dl>
           </article>
           <article class="stat-card">
             <dl>
-              <dt>Collaboration</dt>
-              <dd>Remote-first, async-friendly, basically can adjust to your needs.</dd>
+              <dt>Side projects</dt>
+              <dd>Quant trading ML, multi-agent orchestration, and full-stack apps — see Projects below.</dd>
             </dl>
           </article>
           <article class="stat-card">
             <dl>
-              <dt>Thrives in</dt>
-              <dd>Team that always seeking something even better and never stops at anything.</dd>
+              <dt>Open to</dt>
+              <dd>Remote-first roles and collaborations across time zones.</dd>
             </dl>
           </article>
         </div>
@@ -206,6 +206,100 @@
             <header class="project-header">
               <div class="project-title">
                 <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">project-helios</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/helios$ uv run python -m project_helios.warehouse.pipeline</p>
+              <p class="caret-line">idempotent ETL → DQ gate → features</p>
+            </div>
+            <div class="project-body">
+              <h3>Telco CVM Analytics &amp; ML Lab</h3>
+              <p>Idempotent DuckDB warehouse with a data-quality gate, LLM-narrative alerting, and two calibrated risk models on the IBM Telco Customer Churn dataset.</p>
+              <ul class="project-tags">
+                <li>DuckDB</li>
+                <li>scikit-learn</li>
+                <li>Data Eng</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/project-helios" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">project-aurum</span>
+              </div>
+              <span class="project-status" data-status="exploring"><span class="status-dot" aria-hidden="true"></span>research</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/aurum$ python backtest.py --market IDX --mode walk-forward</p>
+              <p class="caret-line">509 trades · walk-forward CV with embargo</p>
+            </div>
+            <div class="project-body">
+              <h3>Project Aurum — Quant Trading System</h3>
+              <p>Ensemble ML signal generation (LightGBM + XGBoost) for the Indonesian Stock Exchange, with a FastAPI backend and real-time React dashboard.</p>
+              <ul class="project-tags">
+                <li>LightGBM</li>
+                <li>FastAPI</li>
+                <li>React</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/project-aurum" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">mlbb-draft</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/mlbb$ npm run dev -- --scope mlbb-draft</p>
+              <p class="caret-line">scoring counters + synergy in real time</p>
+            </div>
+            <div class="project-body">
+              <h3>MLBB Draft Assistant</h3>
+              <p>Recommends picks by counter-matchup, team synergy, and meta strength as you draft — with role-gap detection.</p>
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li>TypeScript</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/mlbb-draft" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">wikipedia-analytics</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/wiki$ python app.py</p>
+              <p class="caret-line">charting trends via Chart.js</p>
+            </div>
+            <div class="project-body">
+              <h3>Wikipedia Analytics Dashboard</h3>
+              <p>Flask dashboard for exploring Wikipedia article statistics — search, view-count history, and trend charts via the MediaWiki API.</p>
+              <ul class="project-tags">
+                <li>Flask</li>
+                <li>Chart.js</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/wikipedia-analytics" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
                 <span class="project-icon" aria-hidden="true">suicide-detection</span>
               </div>
               <span class="project-status" data-status="deployed"><span class="status-dot" aria-hidden="true"></span>deployed</span>
@@ -215,11 +309,11 @@
               <p class="caret-line">listening for signals…</p>
             </div>
             <div class="project-body">
-              <h3>Detecting Suicidal Ideation in Tweets</h3>
-              <p>Built an LSTM + fastText classifier to flag at-risk conversations with empathy at the core.</p>
+              <h3>Suicide Ideation Detection (Undergrad Thesis)</h3>
+              <p>FastText + LSTM classifier for Indonesian-language text. Research/educational — not a clinical tool.</p>
               <ul class="project-tags">
                 <li>NLP</li>
-                <li>Mental health</li>
+                <li>LSTM</li>
                 <li>fastText</li>
               </ul>
               <a class="project-link" href="https://huggingface.co/spaces/apricitea/suicide-detection" target="_blank" rel="noopener">Explore project</a>
@@ -230,119 +324,22 @@
             <header class="project-header">
               <div class="project-title">
                 <span class="project-tab-dot" aria-hidden="true"></span>
-                <span class="project-icon" aria-hidden="true">spam-filter</span>
-              </div>
-              <span class="project-status" data-status="maintained"><span class="status-dot" aria-hidden="true"></span>maintained</span>
-            </header>
-            <div class="project-shell" aria-hidden="true">
-              <p><span class="prompt">apricitea@lab</span>:~/ml$ make classify target=indonesian_sms</p>
-              <p class="caret-line">deploy pipeline › sms-gateway</p>
-            </div>
-            <div class="project-body">
-              <h3>Spam Messages Classification</h3>
-              <p>Shipped an Indonesian SMS spam filter that balances accuracy with lightweight ops.</p>
-              <ul class="project-tags">
-                <li>Text mining</li>
-                <li>Logistic regression</li>
-                <li>Deployment</li>
-              </ul>
-              <a class="project-link" href="https://github.com/apricitea/sms-spam-classification" target="_blank" rel="noopener">Explore project</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <header class="project-header">
-              <div class="project-title">
-                <span class="project-tab-dot" aria-hidden="true"></span>
-                <span class="project-icon" aria-hidden="true">lost-and-found</span>
-              </div>
-              <span class="project-status" data-status="beta"><span class="status-dot" aria-hidden="true"></span>beta</span>
-            </header>
-            <div class="project-shell" aria-hidden="true">
-              <p><span class="prompt">apricitea@lab</span>:~/product$ yarn dev --scope lost-and-found-ipb</p>
-              <p class="caret-line">pairing students ↔ belongings</p>
-            </div>
-            <div class="project-body">
-              <h3>Lost and Found IPB</h3>
-              <p>Co-led a student platform reconnecting people and lost items through community-first flows.</p>
-              <ul class="project-tags">
-                <li>Product design</li>
-                <li>Full stack</li>
-                <li>Community</li>
-              </ul>
-              <a class="project-link" href="https://github.com/apricitea/Lost-and-Found-IPB" target="_blank" rel="noopener">Explore project</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <header class="project-header">
-              <div class="project-title">
-                <span class="project-tab-dot" aria-hidden="true"></span>
-                <span class="project-icon" aria-hidden="true">heart-check</span>
-              </div>
-              <span class="project-status" data-status="validated"><span class="status-dot" aria-hidden="true"></span>validated</span>
-            </header>
-            <div class="project-shell" aria-hidden="true">
-              <p><span class="prompt">apricitea@lab</span>:~/healthtech$ python predict.py --model knn-smote</p>
-              <p class="caret-line">risk thresholds → clinicians</p>
-            </div>
-            <div class="project-body">
-              <h3>Heart Failure Classification</h3>
-              <p>Prototyped a KNN + SMOTE model to give clinicians interpretable heart-failure risk cues.</p>
-              <ul class="project-tags">
-                <li>Healthcare</li>
-                <li>SMOTE</li>
-                <li>KNN</li>
-              </ul>
-              <a class="project-link" href="https://github.com/apricitea/heart-failure-classification" target="_blank" rel="noopener">Explore project</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <header class="project-header">
-              <div class="project-title">
-                <span class="project-tab-dot" aria-hidden="true"></span>
-                <span class="project-icon" aria-hidden="true">king-county</span>
+                <span class="project-icon" aria-hidden="true">split-bill</span>
               </div>
               <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
             </header>
             <div class="project-shell" aria-hidden="true">
-              <p><span class="prompt">apricitea@lab</span>:~/pricing$ ./ensemble --dataset king_county.csv</p>
-              <p class="caret-line">ensembling 32 market signals</p>
+              <p><span class="prompt">apricitea@lab</span>:~/bills$ streamlit run app.py</p>
+              <p class="caret-line">settling debts to one payer</p>
             </div>
             <div class="project-body">
-              <h3>Advanced House Price Prediction</h3>
-              <p>Built an ensemble pipeline that captures messy King County housing signals for pricing teams.</p>
+              <h3>Split Bill</h3>
+              <p>Takes bill line-items from Excel and settles them so, where possible, everyone only has to pay one person.</p>
               <ul class="project-tags">
-                <li>Ensemble</li>
-                <li>EDA</li>
-                <li>Real estate</li>
+                <li>Streamlit</li>
+                <li>pandas</li>
               </ul>
-              <a class="project-link" href="https://github.com/apricitea/house-price-prediction-with-ensemble-regression" target="_blank" rel="noopener">Explore project</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <header class="project-header">
-              <div class="project-title">
-                <span class="project-tab-dot" aria-hidden="true"></span>
-                <span class="project-icon" aria-hidden="true">ihsg-labs</span>
-              </div>
-              <span class="project-status" data-status="exploring"><span class="status-dot" aria-hidden="true"></span>exploring</span>
-            </header>
-            <div class="project-shell" aria-hidden="true">
-              <p><span class="prompt">apricitea@lab</span>:~/markets$ jupyter nbconvert ihsg.ipynb --to html</p>
-              <p class="caret-line">surfacing macro patterns</p>
-            </div>
-            <div class="project-body">
-              <h3>Time Series Analysis of IHSG</h3>
-              <p>Explored the Indonesian composite index to highlight long-term market trends and anomalies.</p>
-              <ul class="project-tags">
-                <li>Time series</li>
-                <li>Finance</li>
-                <li>Visualization</li>
-              </ul>
-              <a class="project-link" href="https://github.com/apricitea/exploringIHSG" target="_blank" rel="noopener">Explore project</a>
+              <a class="project-link" href="https://github.com/apricitea/split-bill-apps" target="_blank" rel="noopener">Explore project</a>
             </div>
           </article>
         </div>
