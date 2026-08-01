@@ -336,13 +336,109 @@
             </div>
             <div class="project-body">
               <h3>Suicide Ideation Detection (Undergrad Thesis)</h3>
-              <p>FastText + LSTM classifier for Indonesian-language text. Research/educational — not a clinical tool.</p>
+              <p>FastText + LSTM classifier for Indonesian-language text, plus a fine-tuned IndoBERT comparison (F1 0.90 vs. the original 0.79). Research/educational — not a clinical tool.</p>
               <ul class="project-tags">
                 <li>NLP</li>
+                <li>IndoBERT</li>
                 <li>LSTM</li>
-                <li>fastText</li>
               </ul>
               <a class="project-link" href="https://huggingface.co/spaces/apricitea/suicide-detection" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">churn-project</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/churn$ streamlit run "Telco Churn Solutions/Home.py"</p>
+              <p class="caret-line">IPTW propensity-score ATE estimation</p>
+            </div>
+            <div class="project-body">
+              <h3>Telco Churn + Causal Inference</h3>
+              <p>XGBoost churn prediction with SHAP, plus a causal-inference layer estimating the treatment effect of product adoption on churn, revenue, and CLTV — correlation isn't the same as "push this feature."</p>
+              <ul class="project-tags">
+                <li>XGBoost</li>
+                <li>SHAP</li>
+                <li>Causal Inference</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/churn-project" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">turning-point-analysis</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/tpa$ python scripts/analyze.py</p>
+              <p class="caret-line">censored local-extrema bull/bear dating</p>
+            </div>
+            <div class="project-body">
+              <h3>Turning-Point Analysis</h3>
+              <p>Bull/bear market phase dating for IDX stocks via a Pagan-Sossounov style censored local-extrema algorithm — no arbitrary fixed lookback window. Correctly isolates the 2020 COVID crash, unsupervised.</p>
+              <ul class="project-tags">
+                <li>pandas</li>
+                <li>scipy</li>
+                <li>Quant</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/turning-point-analysis" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">speech-event</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/speech-event$ streamlit run Home.py</p>
+              <p class="caret-line">market-model abnormal returns vs. news days</p>
+            </div>
+            <div class="project-body">
+              <h3>Speech Event Study</h3>
+              <p>Event study on BBRI stock reaction to CEO-speech news — market-model abnormal-return flagging joined against scraped articles, plus local-LLM sentiment scoring (Ollama, no API cost).</p>
+              <ul class="project-tags">
+                <li>statsmodels</li>
+                <li>yfinance</li>
+                <li>Ollama</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/speech-event" target="_blank" rel="noopener">Explore project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <header class="project-header">
+              <div class="project-title">
+                <span class="project-tab-dot" aria-hidden="true"></span>
+                <span class="project-icon" aria-hidden="true">brimo-sentiment</span>
+              </div>
+              <span class="project-status" data-status="shipped"><span class="status-dot" aria-hidden="true"></span>shipped</span>
+            </header>
+            <div class="project-shell" aria-hidden="true">
+              <p><span class="prompt">apricitea@lab</span>:~/brimo$ jupyter nbconvert --execute sentiment-analysis-brimo.ipynb</p>
+              <p class="caret-line">local LLM sentiment scoring, no API cost</p>
+            </div>
+            <div class="project-body">
+              <h3>BRImo Sentiment</h3>
+              <p>Sentiment analysis on public BRImo Play Store reviews — local LLM (Ollama, llama3) extracts topic, sentiment, and explanation per review at corpus scale, no per-request API cost.</p>
+              <ul class="project-tags">
+                <li>Ollama</li>
+                <li>NLP</li>
+                <li>Playwright</li>
+              </ul>
+              <a class="project-link" href="https://github.com/apricitea/brimo-sentiment" target="_blank" rel="noopener">Explore project</a>
             </div>
           </article>
         </div>
