@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>~*~ The Realm of Apricitea ~*~</title>
+<meta name="description" content="Alvin's hobby corner: cats, JRPGs, coffee, and playlists, done up as a 90s fantasy fansite." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=VT323&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; }
+  a { color: inherit; }
+  img { image-rendering: pixelated; image-rendering: crisp-edges; }
+
+  @keyframes dragonFrames { from { background-position: 0 0; } to { background-position: -432px 0; } }
+  @keyframes dragonFly { 0% { left:-10%; } 100% { left:110%; } }
+  @keyframes flicker { 0%,100% { opacity:1; } 45% { opacity:0.82; } 60% { opacity:0.95; } 80% { opacity:0.88; } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes wander { 0% { left:0; transform:scaleX(1); } 48% { left:calc(100% - 32px); transform:scaleX(1); } 50% { transform:scaleX(-1); } 98% { left:0; transform:scaleX(-1); } 100% { left:0; transform:scaleX(1); } }
+  @keyframes walkFrames { from { background-position: 0 0; } to { background-position: -96px 0; } }
+  @keyframes driftMountains { from { background-position-x: 0; } to { background-position-x: -1088px; } }
+  @keyframes driftTrees { from { background-position-x: 0; } to { background-position-x: -1088px; } }
+
+  body {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #e9d9ae;
+    background-color: #1b1310;
+    background-image: linear-gradient(rgba(10,6,4,0.82), rgba(10,6,4,0.88)), url('assets/img/realm/brick-wall.png');
+    background-size: auto, 320px 320px;
+    line-height: 1.5;
+  }
+  h1, h2, h3, .crest { font-family: 'MedievalSharp', cursive; }
+  .wrap { width:min(calc(100% - 2rem), 880px); margin:0 auto; }
+
+  .portal-link { display:inline-flex; align-items:center; gap:10px; background:#2a1c14; border:2px solid #a67a3d; color:#f0d9a8; padding:8px 16px; font-size:18px; text-decoration:none; border-radius:2px; }
+  .portal-link:hover { background:#3a2818; border-color:#d4af6a; }
+
+  .marquee-bar { background:#241812; border-top:2px solid #6b4a28; border-bottom:2px solid #6b4a28; overflow:hidden; white-space:nowrap; padding:8px 0; }
+  .marquee-track { display:inline-block; animation: marquee 22s linear infinite; font-size:17px; letter-spacing:0.02em; color:#c9a877; }
+
+  .dragon-sprite { position:absolute; top:36px; width:144px; height:128px; background-image:url('assets/img/realm/dragon-fly.png'); background-repeat:no-repeat; animation: dragonFrames 0.6s steps(3) infinite, dragonFly 16s linear infinite; pointer-events:none; z-index:3; }
+
+  .torch { width:32px; height:32px; animation: flicker 2.6s ease-in-out infinite; }
+
+  .hero-sky { position:relative; height:300px; overflow:hidden; background-image:url('assets/img/realm/sky-dusk.png'); background-size:cover; background-position:center; border-bottom:3px solid #6b4a28; }
+  .hero-layer { position:absolute; left:0; right:0; bottom:0; height:200px; background-repeat:repeat-x; background-position:bottom left; background-size:1088px 200px; }
+  .hero-mountains { background-image:url('assets/img/realm/mountains.png'); animation: driftMountains 100s linear infinite; opacity:0.92; }
+  .hero-trees { height:110px; background-image:url('assets/img/realm/treeline.png'); background-size:1088px 110px; animation: driftTrees 46s linear infinite; }
+  .hero-fade { position:absolute; left:0; right:0; bottom:0; height:70px; background:linear-gradient(rgba(27,19,16,0), #1b1310); }
+
+  .corner-portal { position:fixed; top:14px; right:14px; z-index:999; display:flex; align-items:center; gap:8px; background:#241812; border:2px solid #6b4a28; padding:6px 14px 6px 8px; text-decoration:none; border-radius:2px; box-shadow:0 3px 10px rgba(0,0,0,0.5); }
+  .corner-portal img { width:26px; height:26px; }
+  .corner-portal span { font-size:14.5px; color:#e0c9a3; letter-spacing:0.02em; }
+  .corner-portal:hover { border-color:#d4af6a; background:#3a2818; }
+  .corner-portal:hover img { animation: bob 0.7s ease-in-out infinite; }
+  @media (max-width: 560px) { .corner-portal span { display:none; } }
+
+  .section { padding: 3.5rem 0; border-bottom:1px dashed #4a3420; }
+  .section h2 { font-size:30px; color:#f0d9a8; margin:0 0 6px; text-shadow: 2px 2px 0 #000; }
+  .section .sub { color:#b89968; font-size:17px; margin:0 0 2rem; }
+
+  .pillar { width:44px; height:64px; vertical-align:middle; }
+
+  .card-grid { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .card { background:#241812; border:2px solid #6b4a28; padding:1.25rem 1.4rem; position:relative; }
+  .card::before { content:""; position:absolute; top:-2px; left:-2px; width:14px; height:14px; background-image:url('assets/img/realm/parchment-panel.png'); background-size:cover; }
+  .card h3 { font-size:22px; margin:0 0 8px; color:#e0c9a3; }
+  .card p { margin:0; color:#c9b98f; font-size:17.5px; }
+  .stat-line { display:flex; justify-content:space-between; font-size:15.5px; color:#8a6f47; border-top:1px dashed #4a3420; margin-top:12px; padding-top:8px; }
+
+  .quest-log { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+  .quest-log li { background:#241812; border:1px solid #4a3420; padding:12px 16px; font-size:18px; display:flex; gap:12px; }
+  .quest-log .mark { color:#7fae6a; }
+
+  .guestbook-entry { border-left:3px solid #6b4a28; padding:6px 0 6px 14px; margin-bottom:14px; font-size:18px; color:#d8c49a; }
+  .guestbook-entry b { color:#f0d9a8; }
+
+  .counter { display:inline-flex; align-items:center; gap:10px; background:#0e0906; border:2px inset #6b4a28; padding:8px 16px; font-size:26px; letter-spacing:0.1em; color:#7fae6a; }
+
+  footer .gate-link { display:flex; flex-direction:column; align-items:center; gap:10px; text-decoration:none; text-align:center; }
+  footer .gate-link img { width:76px; height:128px; }
+  footer .gate-link span { font-size:18px; color:#e0c9a3; }
+  footer .gate-link:hover img { animation: bob 1s ease-in-out infinite; }
+
+  .familiar-strip { position:relative; height:32px; margin-bottom:1.5rem; }
+  .familiar { position:absolute; width:32px; height:32px; background-image:url('assets/img/realm/dragon-small.png'); background-repeat:no-repeat; animation: wander 14s ease-in-out infinite, walkFrames 0.5s steps(3) infinite; }
+
+  .credits { font-size:14px; color:#7a6647; line-height:1.7; }
+  .credits a { color:#a98a53; }
+
+  @media (max-width: 640px) {
+    .dragon-sprite { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="corner-portal" href="index.html" title="Return to the professional site">
+  <img src="assets/img/realm/scroll.png" alt="" aria-hidden="true" />
+  <span>Mortal Realm &rarr;</span>
+</a>
+
+<div class="hero-sky" aria-hidden="true">
+  <div class="hero-layer hero-mountains"></div>
+  <div class="hero-layer hero-trees"></div>
+  <div class="dragon-sprite"></div>
+  <div class="hero-fade"></div>
+</div>
+
+<div class="marquee-bar" aria-hidden="true">
+  <span class="marquee-track">⚔ &nbsp; WELCOME WEARY TRAVELER &nbsp; ⚔ &nbsp; UNDER CONSTRUCTION SINCE FOREVER &nbsp; ⚔ &nbsp; BEST VIEWED WITH CURIOSITY &nbsp; ⚔ &nbsp; POWERED BY COFFEE AND CAT HAIR &nbsp; ⚔ &nbsp; SIGN THE GUESTBOOK BEFORE YOU LEAVE &nbsp; ⚔ &nbsp; WELCOME WEARY TRAVELER &nbsp; ⚔ &nbsp; UNDER CONSTRUCTION SINCE FOREVER &nbsp; ⚔ &nbsp; BEST VIEWED WITH CURIOSITY &nbsp; ⚔ &nbsp; POWERED BY COFFEE AND CAT HAIR &nbsp; ⚔ &nbsp; SIGN THE GUESTBOOK BEFORE YOU LEAVE &nbsp; ⚔</span>
+</div>
+
+<header class="wrap" style="text-align:center; padding:1rem 0 2.5rem;">
+  <img src="assets/img/realm/pillar.png" class="pillar" alt="" aria-hidden="true" style="float:left; margin-top:1.5rem;" />
+  <img src="assets/img/realm/pillar.png" class="pillar" alt="" aria-hidden="true" style="float:right; margin-top:1.5rem; transform:scaleX(-1);" />
+  <img src="assets/img/realm/torch.gif" class="torch" alt="" style="margin-bottom:8px;" />
+  <h1 class="crest" style="font-size:clamp(2rem,6vw,3rem); color:#f0d9a8; text-shadow:3px 3px 0 #000; margin:0 0 6px;">The Realm of Apricitea</h1>
+  <img src="assets/img/realm/torch.gif" class="torch" alt="" style="margin-top:2px;" />
+  <p style="color:#b89968; font-size:19px; margin:10px 0 0;">Not a portfolio. Just the stuff I actually do when nobody's grading it.</p>
+  <p style="margin-top:1.6rem;">
+    <a class="portal-link" href="index.html">&larr; Back to the Mortal Realm (the professional site)</a>
+  </p>
+</header>
+
+<nav class="wrap" style="text-align:center; padding-bottom:2rem; font-size:18px;">
+  <a href="#menagerie" style="margin:0 12px;">The Menagerie</a> ·
+  <a href="#questlog" style="margin:0 12px;">Quest Log</a> ·
+  <a href="#brew" style="margin:0 12px;">The Brew &amp; The Bard</a> ·
+  <a href="#guestbook" style="margin:0 12px;">Guestbook</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="section" id="menagerie">
+    <h2>The Menagerie</h2>
+    <p class="sub">Four familiars, retired now to the Eternal Sunbeam. They supervised most of what's on the other site too.</p>
+    <div class="card-grid">
+      <article class="card">
+        <h3>Moku</h3>
+        <p>Senior familiar. Set the house rules; everyone else just lived by them.</p>
+        <div class="stat-line"><span>Class</span><span>Guardian</span></div>
+      </article>
+      <article class="card">
+        <h3>Cimol</h3>
+        <p>Chaotic good. Showed up wherever the keyboard was warmest.</p>
+        <div class="stat-line"><span>Class</span><span>Trickster</span></div>
+      </article>
+      <article class="card">
+        <h3>Leonidas</h3>
+        <p>Named like he had something to prove. Mostly proved he could nap anywhere.</p>
+        <div class="stat-line"><span>Class</span><span>Sentinel</span></div>
+      </article>
+      <article class="card">
+        <h3>Meng</h3>
+        <p>Youngest, loudest, most opinionated about dinner time.</p>
+        <div class="stat-line"><span>Class</span><span>Bard</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="questlog">
+    <h2>Quest Log</h2>
+    <p class="sub">Ongoing side quests. Completion status varies.</p>
+    <ul class="quest-log">
+      <li><span class="mark">&#10003;</span> Start a new JRPG. Get emotionally invested in a side character within the first three hours.</li>
+      <li><span class="mark">&#10003;</span> Abandon said JRPG at 70% complete for a different JRPG. Repeat indefinitely.</li>
+      <li><span class="mark">&#10003;</span> Curate a playlist for a mood that only existed for one afternoon.</li>
+      <li><span class="mark">&#10003;</span> Defend an indefensible opinion about a boss fight to anyone who'll listen.</li>
+      <li>&#9633; Actually finish the backlog. <em style="color:#7a6647;">(quest failed successfully, ongoing)</em></li>
+    </ul>
+  </section>
+
+  <section class="section" id="brew" style="border-bottom:none;">
+    <h2>The Brew &amp; The Bard</h2>
+    <p class="sub">The two rituals that hold the rest of the week together.</p>
+    <div class="card-grid">
+      <article class="card">
+        <h3>The Brew</h3>
+        <p>Slow coffee, made slowly on purpose. Not a productivity ritual — the opposite of one. The one part of the day with nowhere to be.</p>
+      </article>
+      <article class="card">
+        <h3>The Bard's Playlist</h3>
+        <p>Constantly being curated, rarely finished. A good playlist is a mood you can hand to someone else.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="guestbook" style="border-bottom:none;">
+    <h2>Guestbook</h2>
+    <p class="sub">The old kind, where you sign before you leave.</p>
+    <div class="familiar-strip" aria-hidden="true"><div class="familiar"></div></div>
+    <div class="guestbook-entry"><b>a_fellow_wanderer:</b> found this by accident, staying for the dragons</div>
+    <div class="guestbook-entry"><b>moku (posthumously, via medium):</b> he forgot to mention I was in charge</div>
+    <div class="guestbook-entry"><b>you, right now:</b> <span style="animation: blink 1.1s step-start infinite;">_</span></div>
+    <p style="margin-top:1.5rem;">
+      <a class="portal-link" href="mailto:alvincnataputra@gmail.com">Sign it for real &rarr;</a>
+    </p>
+  </section>
+
+  <section class="section" style="text-align:center; border-bottom:none; padding-top:0;">
+    <div class="counter" aria-label="visitor counter">
+      <span>VISITORS:</span><span>003741</span>
+    </div>
+    <p style="font-size:13.5px; color:#6b5a3d; margin-top:8px;">(estimate. dragon-verified. accuracy not guaranteed)</p>
+  </section>
+
+</main>
+
+<footer class="wrap" style="text-align:center; padding:2rem 0 4rem;">
+  <a class="gate-link" href="index.html">
+    <img src="assets/img/realm/gate.png" alt="A wooden gate" />
+    <span>Return to the Mortal Realm</span>
+  </a>
+
+  <p class="credits" style="margin-top:3rem; max-width:640px; margin-left:auto; margin-right:auto;">
+    Pixel art credits — dragon sprite: "Red Dragon" by <a href="https://opengameart.org/node/79018" target="_blank" rel="noopener">ZaPaper</a>, reworked by Jordan Irwin (AntumDeluge), <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a>, via <a href="https://opengameart.org/content/flying-dragon-rework" target="_blank" rel="noopener">OpenGameArt.org</a>.
+    Dusk sky, mountains &amp; treeline: "Mountain at Dusk Background" by <a href="https://ansimuz.com" target="_blank" rel="noopener">Luis Zuno (ansimuz)</a>, CC0.
+    Castle tileset, torch, brick texture, and parchment UI: CC0, via OpenGameArt.org. Scroll icon: Dungeon Crawl Stone Soup, CC0.
+    No AI-generated art on this page — every sprite is hand-drawn pixel work by the credited artists.
+  </p>
+</footer>
+
+</body>
+</html>

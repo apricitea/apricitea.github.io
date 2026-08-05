@@ -22,6 +22,9 @@
   .proj-link:hover { color:#e0c9a3 !important; border-color:#b8935a !important; }
   .rest-row:hover { background:#232320; }
   .rest-link:hover { color:#c9a877 !important; }
+  .realm-portal { position:fixed; top:70px; right:calc(max(1.25rem, (100% - 1080px) / 2)); z-index:150; font-size:12.5px; font-weight:500; letter-spacing:0.02em; padding:9px 16px; border:1px solid #4a4844; color:#c9c5bb; border-radius:3px; background:rgba(26,26,28,0.9); backdrop-filter:blur(8px); box-shadow:0 4px 14px rgba(0,0,0,0.35); transition:border-color 150ms ease, color 150ms ease, transform 150ms ease; }
+  .realm-portal:hover { border-color:#b8935a; color:#e0c9a3; transform:translateY(-1px); }
+  @media (max-width: 640px) { .realm-portal { top:64px; right:1rem; padding:7px 12px; font-size:11.5px; } }
   .site-nav { display:flex; align-items:center; gap:2rem; font-size:13.5px; color:#8a8579; }
   .nav-toggle { display:none; }
   @media (max-width: 640px) {
@@ -34,6 +37,8 @@
 </style>
 </head>
 <body style="font-family:'Inter',system-ui,-apple-system,sans-serif; background-color:#1d1d1f; background-image:radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px); background-size:3px 3px; color:#d9d5cd; min-height:100vh; line-height:1.6;">
+
+<a class="realm-portal" href="realm.html" title="A different side of this site">Enter the Realm &rarr;</a>
 
 <header style="position:sticky; top:0; z-index:200; background:rgba(29,29,31,0.92); backdrop-filter:blur(14px); border-bottom:1px solid #343330;">
   <div style="width:min(calc(100% - 2.5rem), 1080px); margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1.1rem 0;">
@@ -282,6 +287,7 @@
       </div>
     </div>
     <p style="margin-top:2rem; font-size:12.5px; color:#6f6c64; text-align:center; font-style:italic;">In loving memory of Moku, Cimol, Leonidas &amp; Meng — the four who supervised most of this.</p>
+    <p style="margin-top:0.75rem; font-size:12.5px; text-align:center;"><a href="realm.html" style="color:#8a8579; border-bottom:1px dashed #4a4844;">This was the professional version. Enter the Realm for the hobby corner &rarr;</a></p>
   </div>
 </footer>
 
