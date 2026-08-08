@@ -5,12 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Alvin C. Nataputra — Data Scientist / ML Engineer</title>
 <meta name="description" content="Data Scientist / ML Engineer. Quant ML, agentic AI, and full-stack side projects." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Alvin C. Nataputra — Data Scientist / ML Engineer" />
+<meta property="og:description" content="Data Scientist / ML Engineer. Quant ML, agentic AI, and full-stack side projects." />
+<meta property="og:url" content="https://apricitea.github.io/" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Alvin C. Nataputra — Data Scientist / ML Engineer" />
+<meta name="twitter:description" content="Data Scientist / ML Engineer. Quant ML, agentic AI, and full-stack side projects." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   ::selection { background: rgba(217,213,205,0.25); color: #f0ede4; }
   * { box-sizing: border-box; }
+  html { scroll-padding-top: 76px; scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body { margin:0; }
   a { color: inherit; text-decoration: none; }
   a:hover, a:focus { color: #f0ede4; }
@@ -22,23 +32,42 @@
   .proj-link:hover { color:#e0c9a3 !important; border-color:#b8935a !important; }
   .rest-row:hover { background:#232320; }
   .rest-link:hover { color:#c9a877 !important; }
-  .realm-portal { position:fixed; top:70px; right:calc(max(1.25rem, (100% - 1080px) / 2)); z-index:150; font-size:12.5px; font-weight:500; letter-spacing:0.02em; padding:9px 16px; border:1px solid #4a4844; color:#c9c5bb; border-radius:3px; background:rgba(26,26,28,0.9); backdrop-filter:blur(8px); box-shadow:0 4px 14px rgba(0,0,0,0.35); transition:border-color 150ms ease, color 150ms ease, transform 150ms ease; }
-  .realm-portal:hover { border-color:#b8935a; color:#e0c9a3; transform:translateY(-1px); }
-  @media (max-width: 640px) { .realm-portal { top:64px; right:1rem; padding:7px 12px; font-size:11.5px; } }
+  #portalCanvas { position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:0; }
+  #portalCanvas.active { opacity:1; }
+  @media (prefers-reduced-motion: reduce) { #portalCanvas { display:none; } }
+  .theme-toggle { position:fixed; top:16px; right:16px; z-index:999; width:36px; height:36px; border-radius:50%; background:#1d1d1f; border:1px solid #3d3b34; cursor:pointer; padding:0; -webkit-tap-highlight-color:transparent; transition:border-color 150ms ease, background 150ms ease; }
+  .theme-toggle:hover { border-color:#b8935a; background:#232320; }
+  .theme-toggle svg { position:absolute; top:50%; left:50%; width:17px; height:17px; transform:translate(-50%,-50%); transition:opacity 200ms ease, transform 320ms cubic-bezier(.65,0,.35,1); }
+  .theme-toggle .icon-sun { color:#e0c9a3; opacity:0; transform:translate(-50%,-50%) rotate(-90deg) scale(0.5); }
+  .theme-toggle .icon-moon { color:#93a3c4; opacity:1; transform:translate(-50%,-50%) rotate(0deg) scale(1); }
+  .theme-toggle:not(.is-dark) .icon-sun { opacity:1; transform:translate(-50%,-50%) rotate(0deg) scale(1); }
+  .theme-toggle:not(.is-dark) .icon-moon { opacity:0; transform:translate(-50%,-50%) rotate(90deg) scale(0.5); }
   .site-nav { display:flex; align-items:center; gap:2rem; font-size:13.5px; color:#8a8579; }
   .nav-toggle { display:none; }
-  @media (max-width: 640px) {
+  @media (min-width: 701px) { .site-nav { margin-right:40px; } }
+  @media (max-width: 700px) {
+    .theme-toggle { top:12px; right:58px; }
     .site-nav { position:fixed; inset:60px 0 auto 0; flex-direction:column; align-items:flex-start; gap:0; background:#1d1d1f; border-bottom:1px solid #343330; padding:0.5rem 1.25rem 1rem; transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity 150ms ease, transform 150ms ease; }
     .site-nav a { width:100%; padding:0.7rem 0; border-bottom:1px solid #29282500; }
     .site-nav.open { transform:translateY(0); opacity:1; pointer-events:auto; }
     .nav-toggle { display:flex; flex-direction:column; justify-content:center; gap:4px; width:32px; height:32px; background:none; border:0; cursor:pointer; padding:0; }
     .nav-toggle span { display:block; width:20px; height:1.5px; background:#c9c5bb; }
   }
+  @media (max-width: 600px) {
+    .rest-row { flex-wrap: wrap; }
+    .rest-row span:nth-child(2) { flex: 1 1 auto !important; min-width: 0 !important; }
+    .rest-row span:last-of-type { flex: 1 1 100% !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; order: 3; padding-left: 22px; }
+    .rest-row a.rest-link { order: 4; padding-left: 22px; }
+  }
 </style>
 </head>
 <body style="font-family:'Inter',system-ui,-apple-system,sans-serif; background-color:#1d1d1f; background-image:radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px); background-size:3px 3px; color:#d9d5cd; min-height:100vh; line-height:1.6;">
 
-<a class="realm-portal" href="realm.html" title="A different side of this site">Enter the Realm &rarr;</a>
+<canvas id="portalCanvas" aria-hidden="true"></canvas>
+<button class="theme-toggle is-dark" id="realmToggle" type="button" data-dest="realm.html" aria-label="Toggle theme" title="Toggle theme">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+</button>
 
 <header style="position:sticky; top:0; z-index:200; background:rgba(29,29,31,0.92); backdrop-filter:blur(14px); border-bottom:1px solid #343330;">
   <div style="width:min(calc(100% - 2.5rem), 1080px); margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1.1rem 0;">
@@ -71,10 +100,10 @@
         <p style="font-size:19px; line-height:1.5; font-style:italic; color:#e8dcc4; margin:14px 0 14px;">&ldquo;Why? How? What if?&rdquo;</p>
         <p style="font-size:13px; line-height:1.7; color:#8a8579; margin:0;">Taped above my monitor. Applies to a stack trace, a market signal, or an application essay.</p>
       </div>
-      <div style="display:grid; grid-template-columns:1fr; gap:1px; background:#343330; border:1px solid #343330; border-radius:8px; overflow:hidden;">
-        <div style="background:#1d1d1f; padding:1.1rem 1.4rem;"><div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;"><span style="width:6px; height:6px; border-radius:50%; background:#c9a877; display:inline-block;"></span><span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6f6c64;">Now</span></div><div style="font-size:13px; color:#c9c5bb; line-height:1.5;">Building ML systems and agentic tools, prepping a Master's application (Europe).</div></div>
-        <div style="background:#1d1d1f; padding:1.1rem 1.4rem;"><div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;"><span style="width:6px; height:6px; border-radius:50%; background:#8fb09a; display:inline-block;"></span><span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6f6c64;">Focus</span></div><div style="font-size:13px; color:#c9c5bb; line-height:1.5;">ML systems engineering, agentic AI, applied forecasting/signal generation.</div></div>
-        <div style="background:#1d1d1f; padding:1.1rem 1.4rem;"><div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;"><span style="width:6px; height:6px; border-radius:50%; background:#93a3c4; display:inline-block;"></span><span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6f6c64;">Location</span></div><div style="font-size:13px; color:#c9c5bb; line-height:1.5;">Jakarta (GMT+7) · also open to remote opportunities.</div></div>
+      <div style="display:grid; grid-template-columns:minmax(0,1fr); gap:1px; background:#343330; border:1px solid #343330; border-radius:8px; overflow:hidden;">
+        <div style="background:#1d1d1f; padding:1.1rem 1.4rem;"><div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;"><span style="width:6px; height:6px; border-radius:50%; background:#c9a877; display:inline-block;"></span><span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#88857b;">Now</span></div><div style="font-size:13px; color:#c9c5bb; line-height:1.5;">Building ML systems and agentic tools, prepping a Master's application (Europe).</div></div>
+        <div style="background:#1d1d1f; padding:1.1rem 1.4rem;"><div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;"><span style="width:6px; height:6px; border-radius:50%; background:#8fb09a; display:inline-block;"></span><span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#88857b;">Focus</span></div><div style="font-size:13px; color:#c9c5bb; line-height:1.5;">ML systems engineering, agentic AI, applied forecasting/signal generation.</div></div>
+        <div style="background:#1d1d1f; padding:1.1rem 1.4rem;"><div style="display:flex; align-items:center; gap:7px; margin-bottom:6px;"><span style="width:6px; height:6px; border-radius:50%; background:#93a3c4; display:inline-block;"></span><span style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#88857b;">Location</span></div><div style="font-size:13px; color:#c9c5bb; line-height:1.5;">Jakarta (GMT+7) · also open to remote opportunities.</div></div>
       </div>
     </div>
   </div>
@@ -87,14 +116,14 @@
       <h2 style="font-weight:700; font-size:clamp(1.7rem,3vw,2.15rem); letter-spacing:-0.01em; margin:0 0 14px; color:#f0ede4;">Curious brain, loves vibing.</h2>
       <p style="font-size:15.5px; color:#aba692; margin:0;">Statistics, to make sense of an uncertain world. Code, to put it to use.</p>
     </div>
-    <div style="display:grid; gap:1.25rem; grid-template-columns:1.3fr 1fr;">
+    <div style="display:grid; gap:1.25rem; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);">
       <article style="background:#222224; border:1px solid #343330; border-radius:6px; padding:2rem; display:flex; flex-direction:column;">
         <span style="font-size:44px; font-weight:800; color:#ffffff; opacity:0.05; line-height:1; margin-bottom:8px;">"</span>
         <h3 style="font-size:19px; font-weight:600; color:#f0ede4; margin:0 0 14px;">How I work</h3>
         <p style="font-size:15px; color:#aba692; margin:0 0 24px; line-height:1.75;">Keep problems small, prototype with real data, iterate. Listen before proposing — most solutions fail by solving the wrong problem. I'm comfortable deciding under uncertainty, and changing course when I'm wrong.</p>
         <div style="margin-top:auto; padding-top:20px; border-top:1px solid #343330; display:flex; gap:22px;">
-          <div><div style="font-size:20px; font-weight:700; color:#c9a877;">10+</div><div style="font-size:11px; color:#7d7a70; letter-spacing:0.04em;">side projects shipped</div></div>
-          <div><div style="font-size:20px; font-weight:700; color:#8fb09a;">5</div><div style="font-size:11px; color:#7d7a70; letter-spacing:0.04em;">domains explored</div></div>
+          <div><div style="font-size:20px; font-weight:700; color:#c9a877;">10+</div><div style="font-size:11px; color:#88847a; letter-spacing:0.04em;">side projects shipped</div></div>
+          <div><div style="font-size:20px; font-weight:700; color:#8fb09a;">5</div><div style="font-size:11px; color:#88847a; letter-spacing:0.04em;">domains explored</div></div>
         </div>
       </article>
       <div style="display:grid; gap:1.25rem;">
@@ -153,9 +182,9 @@
       </article>
     </div>
     <div style="display:grid; gap:1px; background:#343330; border:1px solid #343330; border-radius:6px; overflow:hidden; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
-      <div style="background:#1d1d1f; padding:1.3rem 1.4rem;"><div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6f6c64; margin-bottom:8px;">Roles</div><div style="font-size:13.5px; color:#c9c5bb; line-height:1.5;">Data scientist · ML engineer · ML systems engineering.</div></div>
-      <div style="background:#1d1d1f; padding:1.3rem 1.4rem;"><div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6f6c64; margin-bottom:8px;">Side projects</div><div style="font-size:13.5px; color:#c9c5bb; line-height:1.5;">Quant trading ML, agentic orchestration, full-stack apps.</div></div>
-      <div style="background:#1d1d1f; padding:1.3rem 1.4rem;"><div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#6f6c64; margin-bottom:8px;">Open to</div><div style="font-size:13.5px; color:#c9c5bb; line-height:1.5;">Remote-first roles and collaborations across time zones.</div></div>
+      <div style="background:#1d1d1f; padding:1.3rem 1.4rem;"><div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#88857b; margin-bottom:8px;">Roles</div><div style="font-size:13.5px; color:#c9c5bb; line-height:1.5;">Data scientist · ML engineer · ML systems engineering.</div></div>
+      <div style="background:#1d1d1f; padding:1.3rem 1.4rem;"><div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#88857b; margin-bottom:8px;">Side projects</div><div style="font-size:13.5px; color:#c9c5bb; line-height:1.5;">Quant trading ML, agentic orchestration, full-stack apps.</div></div>
+      <div style="background:#1d1d1f; padding:1.3rem 1.4rem;"><div style="font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#88857b; margin-bottom:8px;">Open to</div><div style="font-size:13.5px; color:#c9c5bb; line-height:1.5;">Remote-first roles and collaborations across time zones.</div></div>
     </div>
   </div>
 </section>
@@ -167,7 +196,7 @@
       <h2 style="font-weight:700; font-size:clamp(1.7rem,3vw,2.15rem); letter-spacing:-0.01em; margin:0 0 14px; color:#f0ede4;">Recent builds &amp; experiments</h2>
       <p style="font-size:15.5px; color:#aba692; margin:0;">Projects that blend statistical intuition, machine learning, and thoughtful product craft.</p>
     </div>
-    <div style="display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); margin-bottom:1.5rem;">
+    <div style="display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr)); margin-bottom:1.5rem;">
       <article class="proj-card"><header style="display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.5rem; border-bottom:1px solid #343330;">
     <span style="font-size:12.5px; font-weight:600; color:#c9c5bb; letter-spacing:0.01em;">project-aurum</span>
     <span style="display:inline-flex; align-items:center; gap:6px; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#c9a877; background:rgba(184,147,90,0.14); padding:4px 9px; border-radius:999px;"><span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#c9a877;"></span>research</span>
@@ -175,7 +204,7 @@
   <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
     <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Project Aurum — Quant Trading System</h3>
     <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">Ensemble ML signal generation (LightGBM + XGBoost) for the Indonesian Stock Exchange. Walk-forward CV with embargo, SHAP explainability, MetaLabeler for confidence filtering. Backtested on 2020–2024 LQ45 data.</p>
-    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">2.70</div><div style="font-size:10.5px; color:#7d7a70; letter-spacing:0.03em;">Sharpe</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">195%</div><div style="font-size:10.5px; color:#7d7a70; letter-spacing:0.03em;">Return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-17%</div><div style="font-size:10.5px; color:#7d7a70; letter-spacing:0.03em;">Max drawdown</div></div></div>
+    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">2.70</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Sharpe</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">195%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-17%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Max drawdown</div></div></div>
     <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LightGBM</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(125,157,132,0.14); border:1px solid #8fb09a55; color:#8fb09a;">FastAPI</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(143,155,179,0.14); border:1px solid #93a3c455; color:#93a3c4;">React</li></ul>
     <a href="https://github.com/apricitea/project-aurum" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px; margin-top:auto;">Explore project →</a>
   </div></article>
@@ -186,12 +215,12 @@
   <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
     <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Suicide Ideation Detection (Undergrad Thesis)</h3>
     <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">FastText + LSTM classifier for Indonesian-language text, plus a fine-tuned IndoBERT comparison. Research/educational — not a clinical tool.</p>
-    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.90</div><div style="font-size:10.5px; color:#7d7a70; letter-spacing:0.03em;">F1 (IndoBERT)</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.79</div><div style="font-size:10.5px; color:#7d7a70; letter-spacing:0.03em;">F1 (baseline)</div></div></div>
+    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.90</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">F1 (IndoBERT)</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.79</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">F1 (baseline)</div></div></div>
     <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">NLP</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">IndoBERT</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LSTM</li></ul>
     <a href="https://huggingface.co/spaces/apricitea/suicide-detection" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px; margin-top:auto;">Explore project →</a>
   </div></article>
     </div>
-    <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#6f6c64; margin-bottom:14px;">More builds</div>
+    <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#88857b; margin-bottom:14px;">More builds</div>
     <div style="border:1px solid #343330; border-radius:6px; overflow:hidden;">
       <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
@@ -286,8 +315,8 @@
         </ul>
       </div>
     </div>
-    <p style="margin-top:2rem; font-size:12.5px; color:#6f6c64; text-align:center; font-style:italic;">In loving memory of Moku, Cimol, Leonidas &amp; Meng — the four who supervised most of this.</p>
-    <p style="margin-top:0.75rem; font-size:12.5px; text-align:center;"><a href="realm.html" style="color:#8a8579; border-bottom:1px dashed #4a4844;">This was the professional version. Enter the Realm for the hobby corner &rarr;</a></p>
+    <p style="margin-top:2rem; font-size:12.5px; color:#88857b; text-align:center; font-style:italic;">In loving memory of Moku, Cimol, Leonidas &amp; Meng — the four who supervised most of this.</p>
+    <p style="margin-top:0.75rem; font-size:12.5px; text-align:center;"><a href="realm.html" style="color:#8a8579; border-bottom:1px dashed #4a4844;">This was the professional version. Apricitea — the hobby corner — is one click away &rarr;</a></p>
   </div>
 </footer>
 
@@ -306,6 +335,10 @@
       });
     });
   }
+</script>
+<script src="assets/js/portal.js"></script>
+<script>
+  Portal.init({ exitEffect: 'snow', selfPath: 'index.html' });
 </script>
 </body>
 </html>
