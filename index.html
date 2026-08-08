@@ -203,8 +203,9 @@
   </header>
   <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
     <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Project Aurum — Quant Trading System</h3>
-    <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">Ensemble ML signal generation (LightGBM + XGBoost) for the Indonesian Stock Exchange. Walk-forward CV with embargo, SHAP explainability, MetaLabeler for confidence filtering. Backtested on 2020–2024 LQ45 data.</p>
-    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">2.70</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Sharpe</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">195%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-17%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Max drawdown</div></div></div>
+    <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">Ensemble ML signal generation (LightGBM + XGBoost + Random Forest) for the Indonesian Stock Exchange, with triple-barrier labeling and walk-forward CV with embargo (per López de Prado's <em>AFML</em>). Trained on 2020–2024, evaluated out-of-sample on full-year 2025 IDX data. Team project, 4 contributors.</p>
+    <div style="display:flex; gap:20px; padding:12px 0 4px; border-top:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">2.70</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Sharpe</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">195%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-17%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Max drawdown</div></div></div>
+    <div style="font-size:11px; color:#88847a; font-style:italic; padding-bottom:12px; border-bottom:1px solid #343330;">Out-of-sample, 2025 · transaction costs included · backtested, not live performance</div>
     <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LightGBM</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(125,157,132,0.14); border:1px solid #8fb09a55; color:#8fb09a;">FastAPI</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(143,155,179,0.14); border:1px solid #93a3c455; color:#93a3c4;">React</li></ul>
     <a href="https://github.com/apricitea/project-aurum" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px; margin-top:auto;">Explore project →</a>
   </div></article>
@@ -219,19 +220,24 @@
     <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">NLP</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">IndoBERT</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LSTM</li></ul>
     <a href="https://huggingface.co/spaces/apricitea/suicide-detection" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px; margin-top:auto;">Explore project →</a>
   </div></article>
+<article class="proj-card"><header style="display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.5rem; border-bottom:1px solid #343330;">
+    <span style="font-size:12.5px; font-weight:600; color:#c9c5bb; letter-spacing:0.01em;">orchestrator-system</span>
+    <span style="display:inline-flex; align-items:center; gap:6px; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#93a3c4; background:rgba(147,163,196,0.14); padding:4px 9px; border-radius:999px;"><span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#93a3c4;"></span>self-hosted</span>
+  </header>
+  <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
+    <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Autonomous Agent Orchestrator</h3>
+    <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">Self-hosted coding agent that runs on a cron/systemd schedule: hybrid RAG context retrieval, failure memory, LLM-as-judge output scoring, reversibility classification before destructive ops, and automatic commit/PR workflow.</p>
+    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">7</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Task types</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">5</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">DB tables</div></div></div>
+    <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">RAG</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(125,157,132,0.14); border:1px solid #8fb09a55; color:#8fb09a;">PostgreSQL</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(143,155,179,0.14); border:1px solid #93a3c455; color:#93a3c4;">Claude Code CLI</li></ul>
+    <a href="https://github.com/apricitea/orchestrator-system" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px; margin-top:auto;">Explore project →</a>
+  </div></article>
     </div>
     <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#88857b; margin-bottom:14px;">More builds</div>
     <div style="border:1px solid #343330; border-radius:6px; overflow:hidden;">
       <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
-    <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Autonomous Agent Orchestrator</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Self-hosted autonomous coding agent: priority queue with RAG context retrieval, LLM-as-judge output scoring, failure memory, reversibility classification, and automatic PR workflow.</span>
-    <a href="https://github.com/apricitea/orchestrator-system" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
-  </div>
-<div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
-    <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
     <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Telco CVM Analytics & ML Lab</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Idempotent DuckDB warehouse with a data-quality gate, LLM-narrative alerting, and two calibrated risk models on the IBM Telco Customer Churn dataset.</span>
+    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Idempotent DuckDB warehouse ETL with a data-quality gate, dual calibrated risk models (churn AUC 0.823, late-payment AUC 0.628), and LLM-narrative ops reporting — IBM Telco dataset + a synthetic 1M-row usage stream.</span>
     <a href="https://github.com/apricitea/project-helios" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
   </div>
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
@@ -248,8 +254,8 @@
   </div>
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
-    <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Telco Churn + Causal Inference</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">XGBoost churn prediction with SHAP, plus a causal-inference layer estimating the treatment effect of product adoption on churn, revenue, and CLTV.</span>
+    <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Telco Churn — Causal Inference</span>
+    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">XGBoost churn model with SHAP, plus an IPTW causal layer isolating product adoption's actual effect on churn, revenue, and CLTV — Indonesian telco dataset. Team project with an interactive Streamlit dashboard.</span>
     <a href="https://github.com/apricitea/churn-project" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
   </div>
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
