@@ -73,7 +73,7 @@
   <div style="width:min(calc(100% - 2.5rem), 1080px); margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:1.1rem 0;">
     <a href="#top" style="font-size:14px; font-weight:600; letter-spacing:0.02em; color:#e2ded4;">Alvin C. Nataputra</a>
     <nav class="site-nav" id="siteNav" aria-label="Main navigation">
-      <a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#projects">Projects</a><a href="#notes">Notes</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#projects">Projects</a><a href="#research">Research</a><a href="#notes">Notes</a><a href="#contact">Contact</a>
     </nav>
     <button class="nav-toggle" type="button" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
       <span></span><span></span><span></span>
@@ -203,8 +203,8 @@
   <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
     <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Project Aurum — Quant Trading System</h3>
     <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">Ensemble ML signal generation (LightGBM + XGBoost + Random Forest) for the Indonesian Stock Exchange, with triple-barrier labeling and walk-forward CV with embargo (per López de Prado's <em>AFML</em>). Trained on 2020–2024, evaluated out-of-sample on full-year 2025 IDX data. Team project, 4 contributors.</p>
-    <div style="display:flex; gap:20px; padding:12px 0 4px; border-top:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">16</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">tickers evaluated</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-2.01%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">mean return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-0.04</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">mean Sharpe</div></div></div>
-    <div style="font-size:11px; color:#88847a; font-style:italic; padding-bottom:12px; border-bottom:1px solid #343330;">Evaluation incomplete, and the write-up says so. An earlier headline result (195% return / 2.70 Sharpe) had no linked run artifact and is withdrawn. Out-of-sample folds scored 0.27–0.33 accuracy against 1.0 training accuracy, so the pipeline — not the performance — is the contribution.</div>
+    <div style="display:flex; gap:20px; padding:12px 0 4px; border-top:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">+0.12%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">strategy</div></div><div><div style="font-size:16px; font-weight:700; color:#8a8579;">+14.17%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">buy &amp; hold</div></div><div><div style="font-size:16px; font-weight:700; color:#8a8579;">+20.71%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">IHSG</div></div></div>
+    <div style="font-size:11px; color:#88847a; font-style:italic; padding-bottom:12px; border-bottom:1px solid #343330;">Re-evaluated without leakage: the model does not beat buy-and-hold, and walk-forward accuracy (0.34&ndash;0.36) falls below the 0.53 majority-class baseline. The earlier 195% / 2.70 Sharpe result is withdrawn &mdash; four evaluation defects account for it. Code, run manifests and figures are in <b>research/</b>.</div>
     <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LightGBM</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(125,157,132,0.14); border:1px solid #8fb09a55; color:#8fb09a;">FastAPI</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(143,155,179,0.14); border:1px solid #93a3c455; color:#93a3c4;">React</li></ul>
     <div style="display:flex; gap:18px; margin-top:auto;">
       <a href="https://github.com/apricitea/project-aurum" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Explore project →</a>
@@ -294,10 +294,49 @@
   </div>
 </section>
 
+<section id="research" style="padding:5rem 0;">
+  <div style="width:min(calc(100% - 2.5rem), 1080px); margin:0 auto;">
+    <div style="max-width:680px; margin-bottom:2.75rem;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;"><span style="font-size:11px; font-weight:600; letter-spacing:0.1em; color:#b8935a;">04</span><span style="width:22px; height:1px; background:#4a4844;"></span><span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#8a8579;">Research</span></div>
+      <h2 style="font-weight:700; font-size:clamp(1.7rem,3vw,2.15rem); letter-spacing:-0.01em; margin:0 0 14px; color:#f0ede4;">The result I did not want</h2>
+      <p style="font-size:15.5px; color:#aba692; margin:0; line-height:1.75;">My quant project reported a 2.70 Sharpe and 195% return. That number had no run artifact behind it, so I rebuilt the evaluation from scratch &mdash; purge, embargo, fold-local scaling, sample weights, and baselines under identical costs. With the leakage gone, the strategy stops beating buy-and-hold. That is a more useful thing to have found than the number it replaced, and the write-up, code, manifests and figures are all public.</p>
+    </div>
+    <div style="display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); margin-bottom:1.75rem;">
+      <article style="background:#222224; border:1px solid #343330; border-radius:6px; padding:1.6rem;">
+        <h3 style="font-size:16px; font-weight:600; color:#f0ede4; margin:0 0 12px;">Four defects in the original evaluation</h3>
+        <ul style="list-style:none; display:grid; gap:0.75rem; font-size:13.5px; color:#aba692; margin:0; padding:0; line-height:1.6;">
+          <li><span style="color:#f0ede4; font-weight:600;">In-sample "test" data</span> &mdash; the final model was trained on rows spanning the 2025 test window.</li>
+          <li><span style="color:#f0ede4; font-weight:600;">Selected on test</span> &mdash; walk-forward early stopping used the fold's own test set.</li>
+          <li><span style="color:#f0ede4; font-weight:600;">Whole-series scaling</span> &mdash; the scaler was fitted before any split.</li>
+          <li><span style="color:#f0ede4; font-weight:600;">Embargo too short</span> &mdash; 5 calendar days against a 10-trading-bar label horizon, with no purging of overlapping labels.</li>
+        </ul>
+      </article>
+      <article style="background:#222224; border:1px solid #343330; border-radius:6px; padding:1.6rem;">
+        <h3 style="font-size:16px; font-weight:600; color:#f0ede4; margin:0 0 12px;">What the corrected run says</h3>
+        <ul style="list-style:none; display:grid; gap:0.75rem; font-size:13.5px; color:#aba692; margin:0; padding:0; line-height:1.6;">
+          <li>Equal-weight, 16 IDX large caps, 2025 out-of-sample, net of IDX costs.</li>
+          <li><span style="color:#f0ede4; font-weight:600;">+0.12%</span> signal model with the meta-labeler filter &middot; <span style="color:#f0ede4; font-weight:600;">+7.62%</span> without it &middot; <span style="color:#f0ede4; font-weight:600;">+4.73%</span> technical features only.</li>
+          <li><span style="color:#f0ede4; font-weight:600;">+14.17%</span> buy &amp; hold &middot; <span style="color:#f0ede4; font-weight:600;">+20.71%</span> IHSG.</li>
+          <li>Walk-forward accuracy <span style="color:#f0ede4; font-weight:600;">0.34&ndash;0.36</span> against a <span style="color:#f0ede4; font-weight:600;">0.53</span> majority-class baseline &mdash; worse than always predicting the most common label.</li>
+          <li>The meta-labeler reduces exposure, not risk per unit of return: it cut return from +7.62% to +0.12%.</li>
+        </ul>
+      </article>
+    </div>
+    <figure style="margin:0 0 1.5rem;">
+      <img src="https://raw.githubusercontent.com/apricitea/project-aurum/main/research/out/20260928T102521Z-f552679/fig_equity_curve.png" alt="2025 out-of-sample equity curves: signal model, buy and hold, momentum SMA20, and the IHSG index" style="width:100%; height:auto; border:1px solid #343330; border-radius:6px; display:block;" loading="lazy" />
+      <figcaption style="font-size:11.5px; color:#8a8579; margin-top:10px;">2025 out-of-sample equity curves, start = 1.0. The strategy line stays flat while buy-and-hold and the index climb. Reproduced by <code style="color:#c9c5bb;">research/aurum_experiment.py</code>.</figcaption>
+    </figure>
+    <div style="display:flex; gap:18px; flex-wrap:wrap;">
+      <a href="https://github.com/apricitea/aurum-paper" target="_blank" rel="noopener" class="proj-link" style="font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Read the write-up →</a>
+      <a href="https://github.com/apricitea/project-aurum/tree/main/research" target="_blank" rel="noopener" class="proj-link" style="font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Evaluation code and run manifests →</a>
+    </div>
+  </div>
+</section>
+
 <section id="notes" style="padding:5rem 0;">
   <div style="width:min(calc(100% - 2.5rem), 1080px); margin:0 auto;">
     <div style="max-width:640px; margin-bottom:2.75rem;">
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;"><span style="font-size:11px; font-weight:600; letter-spacing:0.1em; color:#b8935a;">04</span><span style="width:22px; height:1px; background:#4a4844;"></span><span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#8a8579;">Notes</span></div>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;"><span style="font-size:11px; font-weight:600; letter-spacing:0.1em; color:#b8935a;">05</span><span style="width:22px; height:1px; background:#4a4844;"></span><span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#8a8579;">Notes</span></div>
       <h2 style="font-weight:700; font-size:clamp(1.7rem,3vw,2.15rem); letter-spacing:-0.01em; margin:0 0 14px; color:#f0ede4;">What I'm noodling on</h2>
       <p style="font-size:15.5px; color:#aba692; margin:0;">Currently living in my notes app and coffee chats.</p>
     </div>
@@ -323,7 +362,7 @@
   <div style="width:min(calc(100% - 2.5rem), 1080px); margin:0 auto;">
     <div style="position:relative; background:#222224; border:1px solid #343330; border-radius:6px; padding:2.4rem; display:grid; gap:1.4rem; overflow:hidden;">
       <div style="position:absolute; top:0; right:0; width:120px; height:120px; background:radial-gradient(circle at top right, rgba(184,147,90,0.12), transparent 70%); pointer-events:none;"></div>
-      <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:11px; font-weight:600; letter-spacing:0.1em; color:#b8935a;">05</span><span style="width:22px; height:1px; background:#4a4844;"></span><span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#8a8579;">Contact</span></div>
+      <div style="display:flex; align-items:center; gap:10px;"><span style="font-size:11px; font-weight:600; letter-spacing:0.1em; color:#b8935a;">06</span><span style="width:22px; height:1px; background:#4a4844;"></span><span style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#8a8579;">Contact</span></div>
       <h2 style="font-weight:700; font-size:clamp(1.7rem,3vw,2.15rem); letter-spacing:-0.01em; margin:0; color:#f0ede4;">Let's build something meaningful.</h2>
       <p style="font-size:15.5px; color:#aba692; margin:0; max-width:560px;">Working on something thoughtful, or need a fresh pair of eyes? Drop a note.</p>
       <div style="display:flex; flex-wrap:wrap; align-items:center; gap:1.4rem;">
