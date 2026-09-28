@@ -121,9 +121,8 @@
         <span style="font-size:44px; font-weight:800; color:#ffffff; opacity:0.05; line-height:1; margin-bottom:8px;">"</span>
         <h3 style="font-size:19px; font-weight:600; color:#f0ede4; margin:0 0 14px;">How I work</h3>
         <p style="font-size:15px; color:#aba692; margin:0 0 24px; line-height:1.75;">Keep problems small, prototype with real data, iterate. Listen before proposing — most solutions fail by solving the wrong problem. I'm comfortable deciding under uncertainty, and changing course when I'm wrong.</p>
-        <div style="margin-top:auto; padding-top:20px; border-top:1px solid #343330; display:flex; gap:22px;">
-          <div><div style="font-size:20px; font-weight:700; color:#c9a877;">10+</div><div style="font-size:11px; color:#88847a; letter-spacing:0.04em;">side projects shipped</div></div>
-          <div><div style="font-size:20px; font-weight:700; color:#8fb09a;">5</div><div style="font-size:11px; color:#88847a; letter-spacing:0.04em;">domains explored</div></div>
+        <div style="margin-top:auto; padding-top:20px; border-top:1px solid #343330; font-size:12.5px; color:#8a8579; line-height:1.6;">
+          Preference: measurable claims. Every repository here states what it tested, what it did not, and what would break it.
         </div>
       </article>
       <div style="display:grid; gap:1.25rem;">
@@ -204,8 +203,8 @@
   <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
     <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Project Aurum — Quant Trading System</h3>
     <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">Ensemble ML signal generation (LightGBM + XGBoost + Random Forest) for the Indonesian Stock Exchange, with triple-barrier labeling and walk-forward CV with embargo (per López de Prado's <em>AFML</em>). Trained on 2020–2024, evaluated out-of-sample on full-year 2025 IDX data. Team project, 4 contributors.</p>
-    <div style="display:flex; gap:20px; padding:12px 0 4px; border-top:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">2.70</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Sharpe</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">195%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-17%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">Max drawdown</div></div></div>
-    <div style="font-size:11px; color:#88847a; font-style:italic; padding-bottom:12px; border-bottom:1px solid #343330;">Out-of-sample, 2025 · transaction costs included · backtested, not live performance</div>
+    <div style="display:flex; gap:20px; padding:12px 0 4px; border-top:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">16</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">tickers evaluated</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-2.01%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">mean return</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">-0.04</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">mean Sharpe</div></div></div>
+    <div style="font-size:11px; color:#88847a; font-style:italic; padding-bottom:12px; border-bottom:1px solid #343330;">Evaluation incomplete, and the write-up says so. An earlier headline result (195% return / 2.70 Sharpe) had no linked run artifact and is withdrawn. Out-of-sample folds scored 0.27–0.33 accuracy against 1.0 training accuracy, so the pipeline — not the performance — is the contribution.</div>
     <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LightGBM</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(125,157,132,0.14); border:1px solid #8fb09a55; color:#8fb09a;">FastAPI</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(143,155,179,0.14); border:1px solid #93a3c455; color:#93a3c4;">React</li></ul>
     <div style="display:flex; gap:18px; margin-top:auto;">
       <a href="https://github.com/apricitea/project-aurum" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Explore project →</a>
@@ -247,7 +246,7 @@
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#8fb09a; flex-shrink:0;"></span>
     <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">LapScout — Indonesian Laptop Finder</span>
     <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">800+ laptop models scraped from Indonesian retailers, normalized through a three-layer medallion pipeline, with an AI chat advisor (Maki) that translates natural-language queries into live database lookups.</span>
-    <a href="https://lapscout.mahirdev.my.id/" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Open live site →</a>
+    <span style="font-size:12px; font-weight:500; color:#6f6b62; flex-shrink:0;">private repo</span>
   </div>
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
