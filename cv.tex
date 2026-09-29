@@ -1,0 +1,235 @@
+%% Alvin Christian Nataputra - academic CV
+%% Built for MSc applications (ETH Zurich, EPFL, TUM, NTNU, TU Delft).
+%% Compile:  latexmk -pdf cv.tex     or     pdflatex cv.tex
+%%
+%% Deliberate choices:
+%%  - A4 and a single column, so parsers (and humans) read it in order.
+%%  - No phone number: this PDF is served publicly from apricitea.github.io.
+%%  - Every research claim traces to a committed artifact; see the notes at the
+%%    bottom of this file for what each number comes from.
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=1.6cm,top=1.25cm,bottom=1.25cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{muted}{HTML}{555555}
+
+\titleformat{\section}{\normalsize\bfseries\color{accent}}{}{0em}{}[{\vspace{-0.7em}\color{accent}\rule{\textwidth}{0.5pt}}]
+\titlespacing*{\section}{0pt}{0.62em}{0.22em}
+
+\setlist[itemize]{leftmargin=1.05em,itemsep=0.08em,topsep=0.14em,parsep=0pt,label=\textbullet}
+
+\newcommand{\heading}[2]{\textbf{#1} \hfill {\small\color{muted}#2}\par}
+\newcommand{\subheading}[1]{\textit{\small #1}\par}
+
+\setlength{\parindent}{0pt}
+\linespread{0.95}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Alvin Christian Nataputra}\\[0.35em]
+  {\small Jakarta, Indonesia \ \textbullet\ \
+  \href{mailto:alvincnataputra@gmail.com}{alvincnataputra@gmail.com} \ \textbullet\ \
+  \href{https://github.com/apricitea}{github.com/apricitea} \ \textbullet\ \
+  \href{https://apricitea.github.io}{apricitea.github.io} \ \textbullet\ \
+  \href{https://linkedin.com/in/alvincnataputra}{linkedin.com/in/alvincnataputra}}
+\end{center}
+
+\vspace{-0.4em}
+
+\section{Research interests}
+
+Reliable machine learning systems: validity and leakage control in time-series ML,
+distribution shift, and how autonomous agents stay grounded over long horizons. Applied
+work on Indonesian-language text and Indonesian equity markets, where data is thin and
+regimes change.
+
+\section{Education}
+
+\heading{IPB University (Bogor Agricultural University)}{Bogor, Indonesia}
+\subheading{Bachelor of Statistics and Data Science \ \textbullet\ \ August 2019 -- August 2023 \ \textbullet\ \ GPA 3.83/4.00}
+
+\textbf{Thesis:} suicide-ideation detection in Indonesian user-generated text. Built a
+FastText + LSTM classifier and benchmarked it against a fine-tuned IndoBERT transformer on
+an identical 80/20 split of 10{,}128 labelled posts: positive-class F1 rose from 0.79 to
+0.90 and accuracy from 0.91 to 0.96. Class-imbalance treatment (class weighting, ADASYN)
+\emph{reduced} F1 in the LSTM arm --- a negative result reported rather than dropped. The
+model is deployed as a public demo; the work is research/educational and is not a clinical
+tool.
+
+\section{Research}
+
+\heading{Reproducible evaluation of an IDX equity signal pipeline}{2025--2026}
+\subheading{Independent research; ensemble ML for the Indonesia Stock Exchange}
+
+\begin{itemize}
+  \item Audited an existing evaluation of a LightGBM/XGBoost signal pipeline and found four
+        defects that invalidated its reported performance: the final model was trained on
+        rows spanning the test window, walk-forward early stopping used the fold's own test
+        set, the feature scaler was fitted on the whole series before splitting, and the
+        embargo was five calendar days against a ten-bar label horizon with no purging of
+        overlapping labels.
+  \item Rebuilt the evaluation with purged and embargoed folds, fold-local scaling,
+        average-uniqueness sample weights for overlapping labels, and buy-and-hold and
+        momentum baselines under identical IDX transaction costs.
+  \item Reported result is negative and is the point of the work: the model returns
+        $+0.12\%$ / $+7.62\%$ / $+4.73\%$ across three configurations, against $+14.17\%$
+        for buy-and-hold and $+20.71\%$ for the index; walk-forward accuracy of
+        0.34--0.36 sits below the 0.53 majority-class baseline. The meta-labeler claimed to
+        improve risk-adjusted return instead reduced exposure and most of the return.
+  \item Committed a full run manifest --- per-file data SHA-256, exact split dates, seeds,
+        configuration, environment lockfile, trade ledger and predictions --- so the result
+        is re-derivable rather than asserted.\\
+        \href{https://github.com/apricitea/project-aurum/tree/main/research}{github.com/apricitea/project-aurum/tree/main/research}
+\end{itemize}
+
+\heading{Bahasa Indonesia corpus: collection pipeline and rights-cleared release}{2026}
+\subheading{Public dataset construction with a provenance gate}
+
+\begin{itemize}
+  \item Built and operate a weekly pipeline collecting Indonesian text (Wikipedia extracts
+        and news sources), with an explicit release rule: a record is published only if its
+        source maps to a licence that can be asserted \emph{and} it carries source URL,
+        revision ID, title and retrieval timestamp.
+  \item Released 552 attributable records under CC BY-SA 4.0 with per-record attribution;
+        excluded roughly 2{,}200 news-derived and 30{,}000 unattributed records rather than
+        publish them without a licence.\\
+        \href{https://huggingface.co/datasets/apricitea/bahasa-indonesia-corpus}{huggingface.co/datasets/apricitea/bahasa-indonesia-corpus}
+\end{itemize}
+
+\heading{Market-regime dating for IDX equities}{2024}
+
+Implemented a censored local-extrema algorithm in the style of Pagan \& Sossounov: candidate
+turning points are filtered by strict peak/trough alternation and phases must clear minimum
+duration and amplitude thresholds, so no arbitrary fixed lookback window is assumed.
+Validated by a test suite and shown to isolate the 2020 COVID drawdown as a distinct bear
+phase on BBRI without supervision.
+
+\heading{Causal effect estimation in telco churn}{2023}
+
+Extended an XGBoost churn model (SHAP-explainable) with an inverse-probability-of-treatment-weighting
+estimator and bootstrapped confidence intervals, to separate correlation from causation for
+product-adoption decisions. Call Center adoption causally reduced churn and increased CLTV;
+video and MyApp adoption increased monthly purchase but their CLTV effects were
+indistinguishable from zero --- which changes the recommendation from ``push adoption'' to
+``fix the product first''.
+
+\heading{Telecommunications CVM analytics and ML lab}{2026}
+
+Idempotent DuckDB warehouse with a data-quality gate that aborts before touching downstream
+tables, two independently calibrated risk models (churn AUC 0.823; late-payment AUC 0.628),
+and a test that enforces the forward-looking construction of the late-payment label.
+
+\section{Experience}
+
+\heading{XLSmart --- Data Scientist, Customer Value \& Experience}{Aug 2024 -- present}
+\subheading{Jakarta, Indonesia \ \textbullet\ \ formerly XL Axiata \ \textbullet\ \ third-largest Indonesian telco, 80M+ subscribers}
+
+\begin{itemize}
+  \item Data science and analytics partner for XL Prioritas (postpaid), Customer Experience
+        and Go-to-Market teams; own end-to-end analytics from opportunity identification
+        through segmentation, targeting and impact measurement.
+  \item Built churn-driver and high-risk-segment analysis that shaped retention initiatives;
+        the resulting programme was reported to improve customer retention by 25\%.
+  \item Led end-to-end analytics for targeted campaigns, enabling commercial teams to
+        optimise targeting and measure incremental revenue.
+  \item Built an agentic-AI analytics layer used by senior leadership to monitor key metrics,
+        identify performance drivers and receive recommendations.\\
+        Stack: Python, SQL, BigQuery, Databricks, Snowflake, Tencent DLC/WeData.
+\end{itemize}
+
+\heading{Asta Protek Jiarsi --- Data Scientist, IT consulting}{Sep 2023 -- Jun 2024}
+\subheading{Jakarta, Indonesia \ \textbullet\ \ consulting and compliance services}
+
+\begin{itemize}
+  \item Delivered ML models, segmentations and dashboards for anti-money-laundering, fraud
+        detection and enterprise analytics, working with client teams to production.
+  \item Standardised ETL workflows and Docker-based ML deployment pipelines, removing a
+        recurring class of production incidents and improving reproducibility.
+  \item Applied SHAP to explain model predictions, supporting business interpretation and
+        regulatory compliance for client ML solutions.\\
+        Stack: Python, Poetry/uv, PostgreSQL, SQL Server, Docker.
+\end{itemize}
+
+\heading{Indosat Ooredoo Hutchison --- Data Science \& Analytics Intern}{May -- Aug 2023}
+\subheading{Jakarta, Indonesia \ \textbullet\ \ second-largest Indonesian telco, 100M+ subscribers}
+
+Automated recurring business analyses from spreadsheets into dashboards and scheduled
+reports, cutting manual reporting workload by 20\%; ran deep-dive statistical testing on
+product and campaign performance, identifying Pareto contributors.
+
+\heading{Bank Rakyat Indonesia (BRI) --- Analytics Intern}{Oct 2022 -- Apr 2023}
+\subheading{Jakarta, Indonesia \ \textbullet\ \ state-owned bank}
+
+Built a non-performing-loan risk model reaching 60\%+ recall at 70\% precision; produced
+geospatial analyses supporting regional coverage optimisation (10\%+ operational efficiency
+improvement).
+
+\section{Technical}
+
+\textbf{Languages} Python, SQL, R, shell \\
+\textbf{Machine learning} gradient-boosted trees (LightGBM, XGBoost), calibrated
+classification, clustering, feature engineering, model evaluation, explainability (SHAP),
+transformers (BERT/IndoBERT), LSTM, FastText \\
+\textbf{Statistics \& experimentation} A/B testing, control-group design, hypothesis
+testing, causal inference (IPTW, propensity scores), time-series validation (walk-forward
+CV, purging, embargo) \\
+\textbf{Engineering \& reproducibility} Docker, uv, pytest, GitHub Actions CI, Git,
+PostgreSQL, DuckDB, Qdrant \\
+\textbf{Data platforms} BigQuery, Databricks, Snowflake, Tencent WeData/DLC \\
+\textbf{Natural languages} Indonesian (native), English (Cambridge C1 Advanced in
+preparation; examination targeted 2027)
+
+\section{Service}
+
+Volunteer computing on a self-hosted homelab: 247{,}311 BOINC credits across Einstein@Home
+(gravitational-wave and pulsar analysis), MilkyWay@Home and World Community Grid. Also
+operate a Tor Snowflake proxy supporting censorship circumvention.
+
+%% ---------------------------------------------------------------- %
+%% REFEREES
+%%
+%% Intentionally omitted until confirmed. Uncomment and fill in before submitting
+%% to any programme. ETH Zurich asks for 2; EPFL asks for 3 (academic preferred);
+%% TUM, NTNU and TU Delft ask for 2.
+%%
+%% \section{Referees}
+%% \heading{Name, Title}{Institution}
+%% \subheading{Relationship (e.g. thesis supervisor) \ \textbullet\ \ email}
+%%
+%% \heading{Name, Title}{Institution}
+%% \subheading{Relationship \ \textbullet\ \ email}
+%%
+%% ---------------------------------------------------------------- %
+%% PROVENANCE OF THE NUMBERS IN THIS CV
+%%
+%% Thesis F1 0.79 -> 0.90, accuracy 0.91 -> 0.96, 10,128 posts
+%%      github.com/apricitea/text-suicide-ideation-detection (README results table)
+%% IDX pipeline +0.12 / +7.62 / +4.73 vs +14.17 buy-and-hold, +20.71 IHSG,
+%% walk-forward 0.34-0.36 vs 0.53 majority baseline, four defects
+%%      github.com/apricitea/project-aurum/tree/main/research (results.json, manifest.json)
+%% Corpus 552 released records, CC BY-SA 4.0, ~2,200 news + ~30,000 unattributed excluded
+%%      huggingface.co/datasets/apricitea/bahasa-indonesia-corpus + the pipeline's
+%%      provenance gate in impact-suite/bahasa_dataset/release.py
+%% Churn AUC 0.823 / late-payment 0.628
+%%      github.com/apricitea/project-helios (README results table)
+%% BOINC 247,311 credits
+%%      boinccmd on the host (Einstein@Home 179,316 + MilkyWay 44,164.60 + WCG 23,830.43)
+%%
+%% TWO INDUSTRY CLAIMS TO CONFIRM BEFORE SUBMITTING
+%% "25% improvement in customer retention" and the BRI "10% efficiency improvement":
+%% both are the candidate's own figures. Attribution phrasing is deliberately
+%% "the resulting programme was reported to improve" so it cannot be read as
+%% personal credit for a company-level metric. Adjust if the attribution differs.
+
+\end{document}
