@@ -214,14 +214,18 @@
   </div></article>
 <article class="proj-card"><header style="display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.5rem; border-bottom:1px solid #343330;">
     <span style="font-size:12.5px; font-weight:600; color:#c9c5bb; letter-spacing:0.01em;">suicide-detection</span>
-    <span style="display:inline-flex; align-items:center; gap:6px; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#8fb09a; background:rgba(125,157,132,0.14); padding:4px 9px; border-radius:999px;"><span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#8fb09a;"></span>deployed</span>
+    <span style="display:inline-flex; align-items:center; gap:6px; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:#c9a877; background:rgba(184,147,90,0.14); padding:4px 9px; border-radius:999px;"><span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#c9a877;"></span>research</span>
   </header>
   <div style="padding:1.5rem; display:flex; flex-direction:column; gap:1.1rem; flex:1;">
-    <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">Suicide Ideation Detection (Undergrad Thesis)</h3>
-    <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">FastText + LSTM classifier for Indonesian-language text, plus a fine-tuned IndoBERT comparison. Research/educational — not a clinical tool.</p>
-    <div style="display:flex; gap:20px; padding:12px 0; border-top:1px solid #343330; border-bottom:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.90</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">F1 (IndoBERT)</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.79</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">F1 (baseline)</div></div></div>
-    <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">NLP</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">IndoBERT</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">LSTM</li></ul>
-    <a href="https://huggingface.co/spaces/apricitea/suicide-detection" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px; margin-top:auto;">Explore project →</a>
+    <h3 style="font-size:17px; font-weight:600; color:#f0ede4; margin:0;">What a 0.91 F1 actually measures</h3>
+    <p style="font-size:13.5px; color:#aba692; margin:0; line-height:1.65;">A leakage audit of the undergraduate Indonesian suicide-ideation corpus. A random 80/20 split without deduplication put 36.5% of the validation posts in both halves. Research/educational — not a clinical tool.</p>
+    <div style="display:flex; gap:20px; padding:12px 0 4px; border-top:1px solid #343330;"><div><div style="font-size:16px; font-weight:700; color:#c9a877;">36.5%</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">val leaked</div></div><div><div style="font-size:16px; font-weight:700; color:#c9a877;">0.877</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">F1 unseen</div></div><div><div style="font-size:16px; font-weight:700; color:#8a8579;">0.910</div><div style="font-size:10.5px; color:#88847a; letter-spacing:0.03em;">F1 published</div></div></div>
+    <div style="font-size:11px; color:#88847a; font-style:italic; padding-bottom:12px; border-bottom:1px solid #343330;">On unseen rows the transformer still beats a character n-gram baseline by +0.090 F1 (95% CI +0.049 to +0.131). Catching 90% of positives means reviewing 21.8% of the corpus at 83.6% precision.</div>
+    <ul style="list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0;"><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">NLP</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">IndoBERT</li><li style="font-size:11px; letter-spacing:0.03em; padding:5px 10px; border-radius:3px; background:rgba(184,147,90,0.14); border:1px solid #c9a87755; color:#c9a877;">evaluation</li></ul>
+    <div style="display:flex; gap:18px; margin-top:auto;">
+      <a href="https://github.com/apricitea/text-suicide-ideation-detection" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Read the audit →</a>
+      <a href="https://github.com/apricitea/text-suicide-ideation-detection/blob/main/paper/main.pdf" target="_blank" rel="noopener" class="proj-link" style="align-self:flex-start; font-size:12.5px; font-weight:500; color:#9c968a; border-bottom:1px solid #4a4844; padding-bottom:2px;">Paper PDF →</a>
+    </div>
   </div></article>
 <article class="proj-card"><header style="display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1.1rem 1.5rem; border-bottom:1px solid #343330;">
     <span style="font-size:12.5px; font-weight:600; color:#c9c5bb; letter-spacing:0.01em;">orchestrator-system</span>
@@ -248,18 +252,6 @@
     <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">LapScout — Indonesian Laptop Finder</span>
     <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">800+ laptop models scraped from Indonesian retailers, normalized through a three-layer medallion pipeline, with an AI chat advisor (Maki) that translates natural-language queries into live database lookups.</span>
     <span style="font-size:12px; font-weight:500; color:#6f6b62; flex-shrink:0;">private repo</span>
-  </div>
-<div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
-    <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
-    <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">MLBB Draft Assistant</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Recommends picks by counter-matchup, team synergy, and meta strength as you draft — with role-gap detection.</span>
-    <a href="https://github.com/apricitea/mlbb-draft" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
-  </div>
-<div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
-    <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#93a3c4; flex-shrink:0;"></span>
-    <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Wikipedia Analytics</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Flask dashboard for Wikipedia article stats and trends — live view-count history via the MediaWiki API, tested with a mocked API client so CI runs offline.</span>
-    <a href="https://github.com/apricitea/wikipedia-analytics" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
   </div>
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
@@ -327,9 +319,21 @@
       <img src="https://raw.githubusercontent.com/apricitea/project-aurum/main/research/out/20260928T102521Z-f552679/fig_equity_curve.png" alt="2025 out-of-sample equity curves: signal model, buy and hold, momentum SMA20, and the IHSG index" style="width:100%; height:auto; border:1px solid #343330; border-radius:6px; display:block;" loading="lazy" />
       <figcaption style="font-size:11.5px; color:#8a8579; margin-top:10px;">2025 out-of-sample equity curves, start = 1.0. The strategy line stays flat while buy-and-hold and the index climb. Reproduced by <code style="color:#c9c5bb;">research/aurum_experiment.py</code>.</figcaption>
     </figure>
-    <div style="display:flex; gap:18px; flex-wrap:wrap;">
+    <div style="display:flex; gap:18px; flex-wrap:wrap; margin-bottom:4rem;">
       <a href="https://github.com/apricitea/aurum-paper" target="_blank" rel="noopener" class="proj-link" style="font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Read the write-up →</a>
       <a href="https://github.com/apricitea/project-aurum/tree/main/research" target="_blank" rel="noopener" class="proj-link" style="font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Evaluation code and run manifests →</a>
+    </div>
+    <div style="max-width:680px; margin-bottom:2.75rem;">
+      <h2 style="font-weight:700; font-size:clamp(1.5rem,2.6vw,1.85rem); letter-spacing:-0.01em; margin:0 0 14px; color:#f0ede4;">And the 0.91 F1 that was also inflated</h2>
+      <p style="font-size:15.5px; color:#aba692; margin:0; line-height:1.75;">The undergraduate suicide-ideation corpus is a scraped X sample. A random 80/20 split without deduplication put <b>739 of 2,026 validation posts (36.5%)</b> in both halves. On the 1,287 genuinely unseen rows, fine-tuned IndoBERT falls from F1 0.910 to <b>0.877</b> [0.845, 0.904]. A character n-gram logistic regression reaches 0.787; the remaining transformer advantage is +0.090 [+0.049, +0.131]. The FastText + LSTM thesis arm cannot be recomputed &mdash; tokenizer and vectors were never saved &mdash; and that is recorded rather than hidden.</p>
+    </div>
+    <figure style="margin:0 0 1.5rem;">
+      <img src="https://raw.githubusercontent.com/apricitea/text-suicide-ideation-detection/main/eval/out/20261025-full/fig_scores.png" alt="Positive-class F1 by protocol: published split versus unseen validation rows, with cheap classical baselines" style="width:100%; height:auto; border:1px solid #343330; border-radius:6px; display:block;" loading="lazy" />
+      <figcaption style="font-size:11.5px; color:#8a8579; margin-top:10px;">Positive-class F1. Error bars are 95% bootstrap intervals on unseen rows. Reproduced by <code style="color:#c9c5bb;">eval/si_eval/run.py</code>.</figcaption>
+    </figure>
+    <div style="display:flex; gap:18px; flex-wrap:wrap;">
+      <a href="https://github.com/apricitea/text-suicide-ideation-detection/blob/main/paper/main.pdf" target="_blank" rel="noopener" class="proj-link" style="font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Read the paper →</a>
+      <a href="https://github.com/apricitea/text-suicide-ideation-detection/tree/main/eval" target="_blank" rel="noopener" class="proj-link" style="font-size:12.5px; font-weight:500; color:#c9c5bb; border-bottom:1px solid #4a4844; padding-bottom:2px;">Evaluation code →</a>
     </div>
   </div>
 </section>

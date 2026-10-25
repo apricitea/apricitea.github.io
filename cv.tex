@@ -59,13 +59,10 @@ regimes change.
 \heading{IPB University (Bogor Agricultural University)}{Bogor, Indonesia}
 \subheading{Bachelor of Statistics and Data Science \ \textbullet\ \ August 2019 -- August 2023 \ \textbullet\ \ GPA 3.83/4.00}
 
-\textbf{Thesis:} suicide-ideation detection in Indonesian user-generated text. Built a
-FastText + LSTM classifier and benchmarked it against a fine-tuned IndoBERT transformer on
-an identical 80/20 split of 10{,}128 labelled posts: positive-class F1 rose from 0.79 to
-0.90 and accuracy from 0.91 to 0.96. Class-imbalance treatment (class weighting, ADASYN)
-\emph{reduced} F1 in the LSTM arm --- a negative result reported rather than dropped. The
-model is deployed as a public demo; the work is research/educational and is not a clinical
-tool.
+\textbf{Thesis:} suicide-ideation detection in Indonesian user-generated text
+(FastText + LSTM, later an IndoBERT comparison). A 2026 leakage audit of the same
+split is reported under Research; the work is research/educational and is not a
+clinical tool.
 
 \section{Research}
 
@@ -85,12 +82,29 @@ tool.
   \item Reported result is negative and is the point of the work: the model returns
         $+0.12\%$ / $+7.62\%$ / $+4.73\%$ across three configurations, against $+14.17\%$
         for buy-and-hold and $+20.71\%$ for the index; walk-forward accuracy of
-        0.34--0.36 sits below the 0.53 majority-class baseline. The meta-labeler claimed to
-        improve risk-adjusted return instead reduced exposure and most of the return.
+        0.34--0.36 sits below the 0.53 majority-class baseline on 0 of 16 tickers
+        (sign-test $p=3\times10^{-5}$). Median time in market is 3\% of test days.
   \item Committed a full run manifest --- per-file data SHA-256, exact split dates, seeds,
         configuration, environment lockfile, trade ledger and predictions --- so the result
         is re-derivable rather than asserted.\\
         \href{https://github.com/apricitea/project-aurum/tree/main/research}{github.com/apricitea/project-aurum/tree/main/research}
+\end{itemize}
+
+\heading{Duplicate leakage in a scraped Indonesian mental-health corpus}{2026}
+\subheading{Independent research note; evaluation of the undergraduate thesis corpus}
+
+\begin{itemize}
+  \item Measured that a random 80/20 split of a 10{,}128-post scraped X corpus placed 739 of
+        2{,}026 validation posts (36.5\%) in both halves, because 2{,}161 posts are exact
+        duplicates and the split was drawn before they were removed.
+  \item Re-scored the committed IndoBERT predictions on the 1{,}287 unseen rows: positive-class
+        F1 0.877 [0.845, 0.904], down from 0.910. Compared against four classical baselines
+        trained on the same data; the strongest (character $n$-gram logistic regression)
+        reaches 0.787, so the remaining transformer advantage is $+0.090$ [+0.049, +0.131]
+        (McNemar $p=6.3\times10^{-4}$).
+  \item Calibration ECE 0.046; 90\% recall requires reviewing 21.8\% of the corpus at
+        83.6\% precision. Paper, tests, CI, committed run manifest.\\
+        \href{https://github.com/apricitea/text-suicide-ideation-detection}{github.com/apricitea/text-suicide-ideation-detection}
 \end{itemize}
 
 \heading{Bahasa Indonesia corpus: collection pipeline and rights-cleared release}{2026}
@@ -189,12 +203,6 @@ PostgreSQL, DuckDB, Qdrant \\
 \textbf{Data platforms} BigQuery, Databricks, Snowflake, Tencent WeData/DLC \\
 \textbf{Natural languages} Indonesian (native), English (Cambridge C1 Advanced in
 preparation; examination targeted 2027)
-
-\section{Service}
-
-Volunteer computing on a self-hosted homelab: 247{,}311 BOINC credits across Einstein@Home
-(gravitational-wave and pulsar analysis), MilkyWay@Home and World Community Grid. Also
-operate a Tor Snowflake proxy supporting censorship circumvention.
 
 %% ---------------------------------------------------------------- %
 %% REFEREES
