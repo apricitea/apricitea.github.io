@@ -95,15 +95,14 @@ clinical tool.
 
 \begin{itemize}
   \item Measured that a random 80/20 split of a 10{,}128-post scraped X corpus placed 739 of
-        2{,}026 validation posts (36.5\%) in both halves, because 2{,}161 posts are exact
-        duplicates and the split was drawn before they were removed.
-  \item Re-scored the committed IndoBERT predictions on the 1{,}287 unseen rows: positive-class
-        F1 0.877 [0.845, 0.904], down from 0.910. Compared against four classical baselines
-        trained on the same data; the strongest (character $n$-gram logistic regression)
-        reaches 0.787, so the remaining transformer advantage is $+0.090$ [+0.049, +0.131]
-        (McNemar $p=6.3\times10^{-4}$).
+        2{,}026 validation posts (36.5\%) in both halves; 2{,}161 posts are exact duplicates.
+  \item Re-scored the committed predictions on the 1{,}287 unseen rows: positive-class F1 0.877
+        [0.845, 0.904], down from 0.910. Then removed the cause rather than the symptom:
+        deduplicated the corpus, re-split, and fine-tuned again, giving 0.849 [0.821, 0.877] on
+        1{,}586 unseen posts against 0.785 [0.749, 0.819] for the strongest baseline --- a
+        $+0.064$ advantage (McNemar $p=0.015$).
   \item Calibration ECE 0.046; 90\% recall requires reviewing 21.8\% of the corpus at
-        83.6\% precision. Paper, tests, CI, committed run manifest.\\
+        83.6\% precision. Paper, tests, CI, committed run manifest and a containerised demo.\\
         \href{https://github.com/apricitea/text-suicide-ideation-detection}{github.com/apricitea/text-suicide-ideation-detection}
 \end{itemize}
 
