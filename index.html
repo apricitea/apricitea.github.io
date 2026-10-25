@@ -268,7 +268,7 @@
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
     <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#b8a97e; flex-shrink:0;"></span>
     <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Speech Event Study</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Event study on BBRI stock reaction to CEO-speech news — market-model abnormal-return flagging joined against scraped articles, plus local-LLM sentiment scoring.</span>
+    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Rebuilt as a proper event study: the original join had 32 news rows and zero abnormal labels, so it could not have shown anything. News as event gives 26 events, Patell Z &minus;2.84 (p=0.0045), 1/26 surviving FDR correction.</span>
     <a href="https://github.com/apricitea/speech-event" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
   </div>
 <div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem; border-bottom:1px solid #2c2b28;">
@@ -277,13 +277,7 @@
     <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Sentiment analysis on public BRImo Play Store reviews — local LLM (Ollama, llama3) extracts topic, sentiment, and explanation per review at corpus scale.</span>
     <a href="https://github.com/apricitea/brimo-sentiment" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
   </div>
-<div class="rest-row" style="display:flex; align-items:center; gap:1rem; padding:0.95rem 1.4rem;">
-    <span style="width:6px; height:6px; border-radius:50%; display:inline-block; background:#93a3c4; flex-shrink:0;"></span>
-    <span style="font-size:13.5px; font-weight:600; color:#e2ded4; flex-shrink:0;">Split Bill Apps</span>
-    <span style="font-size:12.5px; color:#8a8579; flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Streamlit app that nets out shared bills from an Excel upload — collapses many-to-many debts into minimal one-person settlements.</span>
-    <a href="https://github.com/apricitea/split-bill-apps" target="_blank" rel="noopener" class="rest-link" style="font-size:12px; font-weight:500; color:#9c968a; flex-shrink:0;">Explore project →</a>
-  </div>
-    </div>
+</div>
   </div>
 </section>
 
